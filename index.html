@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Automação para escritórios de advocacia | Carajás HubTech</title>
+<meta name="description" content="Atendimento no WhatsApp, painel de gestão, CRM, presença nas redes e captação por landing page para escritórios de advocacia. Sistema em operação real desde setembro de 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --grafite:#19212C;
+  --grafite-2:#232E3D;
+  --azul:#1E51C1;
+  --azul-claro:#3D77E8;
+  --tint:#EEF3FD;
+  --tint-2:#DDE7FA;
+  --linha:#D9E0EA;
+  --slate:#5B6879;
+  --papel:#FFFFFF;
+  --ok:#1C7A4A;
+  --ok-soft:#E6F4EC;
+  --warn:#9A6212;
+  --warn-soft:#FBF1DE;
+  --wrap:48rem;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --display:Archivo,"Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--papel);color:var(--grafite);font-family:var(--sans);font-size:17px;line-height:1.6}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 1.25rem}
+img{max-width:100%}
+
+/* ---------- cabeçalho ---------- */
+header{background:var(--grafite);color:#fff;padding:3rem 0 2.5rem;position:relative;overflow:hidden}
+header::after{content:"";position:absolute;right:-12%;top:-30%;width:60%;height:160%;background:radial-gradient(circle at center,rgba(30,81,193,.38),transparent 62%)}
+header .wrap{position:relative;z-index:1}
+.eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#8FB4FF;margin:0 0 1.1rem;line-height:1.5}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,7.2vw,3.1rem);line-height:1.03;letter-spacing:-.025em;margin:0 0 1rem}
+h1 em{font-style:normal;color:#79A6FF}
+.lede{font-size:1.06rem;color:#C7D3E4;margin:0;max-width:36rem}
+.selo{margin-top:1.7rem;display:flex;flex-wrap:wrap;gap:.4rem .9rem;font-family:var(--mono);font-size:.7rem;color:#8495AB;letter-spacing:.05em}
+.selo span::before{content:"· ";color:#4A5B72}
+.selo span:first-child::before{content:""}
+
+/* ---------- navegação fixa ---------- */
+.navbar{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--linha)}
+.navbar .wrap{display:flex;align-items:center;gap:.75rem;padding-top:.5rem;padding-bottom:.5rem}
+.navlinks{display:flex;gap:.1rem;overflow-x:auto;scrollbar-width:none;flex:1}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;color:var(--slate);text-decoration:none;padding:.4rem .55rem;border-radius:6px;white-space:nowrap}
+.navlinks a:hover{background:var(--tint);color:var(--azul)}
+.navlinks a[aria-current="true"]{background:var(--grafite);color:#fff}
+.barra{height:3px;background:var(--tint-2)}
+.barra span{display:block;height:100%;width:0;background:var(--azul);transition:width .2s linear}
+
+/* ---------- estrutura ---------- */
+main{padding:2.75rem 0 1rem}
+section{margin:0 0 3.5rem;scroll-margin-top:5rem}
+.num{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--azul);margin:0 0 .4rem}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.4rem,4.6vw,1.9rem);line-height:1.14;letter-spacing:-.018em;margin:0 0 .8rem}
+h3{font-family:var(--display);font-weight:700;font-size:1.04rem;margin:1.7rem 0 .45rem;letter-spacing:-.005em}
+p{margin:0 0 .95rem}
+.destaque{font-size:1.1rem;color:var(--grafite);border-left:4px solid var(--azul);padding-left:1rem;margin:1.4rem 0;font-weight:500}
+a{color:var(--azul);text-decoration:underline;text-underline-offset:2px}
+a:hover{color:var(--grafite)}
+strong,b{font-weight:600}
+.so-leitura{color:var(--slate);font-size:.95rem}
+
+/* ---------- calculadora ---------- */
+.calc{background:var(--tint);border:1px solid var(--tint-2);border-radius:12px;padding:1.3rem 1.25rem}
+.calc-linha{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;margin-bottom:1rem}
+.calc-linha:last-of-type{margin-bottom:1.3rem}
+.calc label{flex:1 1 15rem;font-size:.97rem}
+.calc input{width:7rem;font-family:var(--mono);font-size:1rem;padding:.45rem .6rem;border:1px solid var(--linha);border-radius:7px;background:#fff;text-align:right}
+.calc input:focus-visible{outline:2px solid var(--azul);outline-offset:1px}
+.calc-saida{background:var(--grafite);color:#fff;border-radius:10px;padding:1.1rem 1.2rem}
+.calc-saida p{margin:0 0 .4rem;font-size:.95rem;color:#C7D3E4}
+.calc-saida p:last-child{margin:0}
+.calc-saida b{font-family:var(--mono);font-size:1.35rem;font-weight:600;color:#79A6FF;display:block;line-height:1.3}
+
+/* ---------- demonstração de conversa ---------- */
+.demo{border:1px solid var(--linha);border-radius:12px;overflow:hidden}
+.demo-topo{background:var(--grafite);color:#fff;padding:.7rem 1rem;display:flex;align-items:center;gap:.6rem;font-size:.9rem}
+.demo-topo span{font-family:var(--mono);font-size:.7rem;color:#8FB4FF;letter-spacing:.08em;text-transform:uppercase}
+.demo-corpo{padding:1rem;background:#F7F9FC;min-height:12rem}
+.msg{margin:0 0 .7rem;padding:.65rem .85rem;border-radius:10px;max-width:84%;font-size:.95rem;line-height:1.5;animation:surge .25s ease}
+.msg b{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.25rem;opacity:.75;font-weight:500}
+.msg.cliente{background:#fff;border:1px solid var(--linha)}
+.msg.jarvis{background:var(--tint);border:1px solid var(--tint-2);margin-left:auto}
+.msg.advogado{background:var(--grafite);color:#fff;margin-left:auto}
+.msg.advogado b{color:#8FB4FF;opacity:1}
+.msg.sistema{background:var(--ok-soft);border:1px solid #BFE3CF;font-size:.9rem;max-width:100%}
+.msg.sistema b{color:var(--ok);opacity:1}
+@keyframes surge{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.demo-pe{display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border-top:1px solid var(--linha);background:#fff;flex-wrap:wrap}
+.bt{font-family:var(--sans);font-size:.95rem;font-weight:600;padding:.55rem 1rem;border-radius:8px;border:1px solid var(--azul);background:var(--azul);color:#fff;cursor:pointer}
+.bt:hover{background:var(--azul-claro);border-color:var(--azul-claro)}
+.bt.sec{background:#fff;color:var(--azul)}
+.bt.sec:hover{background:var(--tint);color:var(--azul)}
+.bt:disabled{opacity:.45;cursor:default}
+.passo-conta{font-family:var(--mono);font-size:.75rem;color:var(--slate);margin-left:auto}
+
+/* ---------- cartões de produto ---------- */
+.produtos{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:.9rem;margin-top:1.3rem}
+.cartao{border:1px solid var(--linha);border-radius:12px;padding:1.1rem 1.15rem;background:#fff;display:flex;flex-direction:column}
+.cartao h3{margin:.55rem 0 .45rem;font-size:1.06rem}
+.cartao p{font-size:.94rem;margin:0 0 .7rem;color:var(--grafite)}
+.cartao .ganho{margin-top:auto;font-size:.88rem;color:var(--slate);border-top:1px solid var(--linha);padding-top:.65rem}
+.cartao .ganho b{color:var(--azul)}
+.chip{display:inline-block;font-family:var(--mono);font-size:.64rem;letter-spacing:.09em;text-transform:uppercase;padding:.2rem .45rem;border-radius:4px;font-weight:500}
+.chip.ar{background:var(--ok-soft);color:var(--ok)}
+.chip.obra{background:var(--warn-soft);color:var(--warn)}
+.chip.sob{background:var(--tint);color:var(--azul)}
+
+/* ---------- linha do tempo ---------- */
+.linha-tempo{list-style:none;margin:1.3rem 0 0;padding:0 0 0 1.6rem;border-left:2px solid var(--tint-2)}
+.linha-tempo li{position:relative;padding:0 0 1.4rem}
+.linha-tempo li::before{content:"";position:absolute;left:-2.05rem;top:.4rem;width:.7rem;height:.7rem;border-radius:50%;background:var(--azul);border:3px solid #fff;box-shadow:0 0 0 2px var(--tint-2)}
+.linha-tempo b{display:block;font-family:var(--display);font-size:1rem}
+.linha-tempo small{display:block;color:var(--slate);font-size:.92rem;margin-top:.15rem}
+.linha-tempo .quem{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--azul)}
+
+/* ---------- listas e caixas ---------- */
+.lista{list-style:none;margin:1.1rem 0 0;padding:0}
+.lista li{border-top:1px solid var(--linha);padding:.85rem 0 .9rem}
+.lista li:last-child{border-bottom:1px solid var(--linha)}
+.lista b{font-weight:600}
+.lista small{display:block;color:var(--slate);font-size:.9rem;margin-top:.15rem}
+.nota{background:var(--tint);padding:1rem 1.1rem;border-radius:10px;margin:1.4rem 0;font-size:.96rem}
+.nota p{margin:0}
+.nota p + p{margin-top:.6rem}
+.alerta{border-left:5px solid var(--azul);background:var(--tint);padding:1rem 1.1rem;border-radius:0 10px 10px 0;margin:1.4rem 0}
+.alerta p{margin:0;font-size:.98rem}
+.alerta p + p{margin-top:.6rem}
+
+/* ---------- números ---------- */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:.8rem;margin:1.3rem 0}
+.stat{border:1px solid var(--linha);border-radius:10px;padding:.95rem 1rem}
+.stat b{display:block;font-family:var(--mono);font-size:1.5rem;font-weight:600;color:var(--azul);line-height:1.2}
+.stat small{display:block;color:var(--slate);font-size:.86rem;margin-top:.25rem}
+
+/* ---------- perguntas ---------- */
+details{border-top:1px solid var(--linha);padding:.9rem 0}
+details:last-of-type{border-bottom:1px solid var(--linha)}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;gap:.6rem;align-items:flex-start}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";font-family:var(--mono);color:var(--azul);font-weight:600;flex:none;width:1rem}
+details[open] summary::before{content:"\2212"}
+details p{margin:.7rem 0 0 1.6rem;font-size:.96rem;color:var(--grafite)}
+
+/* ---------- chamada final ---------- */
+.cta{background:var(--grafite);color:#fff;border-radius:14px;padding:1.8rem 1.5rem;margin:2rem 0 0}
+.cta h2{color:#fff;margin-bottom:.6rem}
+.cta p{color:#C7D3E4}
+.cta .contato{font-family:var(--mono);font-size:1rem;color:#79A6FF;margin:1.2rem 0 0;line-height:1.9}
+.falta{background:#3A2F12;color:#FFD98A;font-family:var(--mono);font-size:.8rem;padding:.15rem .4rem;border-radius:4px}
+
+/* ---------- rodapé ---------- */
+footer{background:var(--grafite);color:#A8B6C8;padding:2.4rem 0 2.8rem;margin-top:3.5rem;font-size:.9rem}
+footer h3{color:#fff;margin-top:0}
+footer a{color:#8FB4FF}
+.assina{color:#fff;font-weight:600;margin-bottom:.15rem}
+.fontes{font-size:.78rem;line-height:1.75;color:#7D8DA3;margin-top:1.6rem}
+
+@media (max-width:40rem){
+  .msg{max-width:94%}
+  .calc input{width:100%}
+  .calc label{flex:1 1 100%}
+}
+@media print{
+  .navbar,.demo-pe{display:none}
+  body{font-size:11pt}
+  header,footer,.cta,.calc-saida,.msg.advogado{background:#fff!important;color:#000!important}
+  header::after{display:none}
+  h1 em,.lede,.selo,.cta p,.calc-saida b{color:#333!important}
+  .msg{max-width:100%;page-break-inside:avoid}
+  a{color:#000}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">Carajás HubTech &middot; tecnologia para escritórios de advocacia</p>
+    <h1>Seu escritório atendendo<br><em>enquanto você advoga</em></h1>
+    <p class="lede">Atendimento no WhatsApp, painel de gestão, CRM, presença nas redes e captação por landing page. Em operação real num escritório de Marabá desde setembro de 2026 — não é maquete, é sistema rodando todos os dias.</p>
+    <p class="selo">
+      <span>Apresentação comercial</span>
+      <span>v1</span>
+      <span>Marabá/PA</span>
+      <span>outubro de 2026</span>
+    </p>
+  </div>
+</header>
+
+<nav class="navbar" aria-label="Seções desta apresentação">
+  <div class="wrap">
+    <div class="navlinks">
+      <a href="#hoje">O dia de hoje</a>
+      <a href="#atendimento">O atendimento</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#caminho">Do oi ao contrato</a>
+      <a href="#sigilo">Sigilo</a>
+      <a href="#prova">Prova</a>
+      <a href="#implantacao">Implantação</a>
+      <a href="#perguntas">Perguntas</a>
+    </div>
+  </div>
+  <div class="barra"><span id="preenchimento"></span></div>
+</nav>
+
+<main class="wrap">
+
+  <section id="hoje">
+    <p class="num">O ponto de partida</p>
+    <h2>Enquanto você está em audiência, três pessoas escreveram no WhatsApp do escritório</h2>
+    <p>Nenhuma delas disse o nome. Duas mandaram áudio. Uma mandou foto de um contrato de ponta-cabeça. Quando você sai da audiência, precisa ouvir tudo, entender quem é quem, descobrir o que cada um quer e só então decidir se vale pegar o caso.</p>
+    <p>Esse trabalho não é advocacia, mas consome hora de advogado. E é o primeiro trecho onde o cliente desiste: no silêncio entre a mensagem dele e a sua resposta.</p>
+
+    <div class="calc">
+      <div class="calc-linha">
+        <label for="c-contatos">Contatos novos por semana no WhatsApp do escritório</label>
+        <input type="number" id="c-contatos" value="15" min="0" max="500" step="1">
+      </div>
+      <div class="calc-linha">
+        <label for="c-minutos">Minutos até entender o caso de cada um (ouvir áudio, perguntar, anotar)</label>
+        <input type="number" id="c-minutos" value="12" min="0" max="240" step="1">
+      </div>
+      <div class="calc-linha">
+        <label for="c-hora">Quanto vale uma hora sua, em reais</label>
+        <input type="number" id="c-hora" value="300" min="0" max="5000" step="10">
+      </div>
+      <div class="calc-saida" aria-live="polite">
+        <p>Triagem manual por mês</p>
+        <b id="s-horas">—</b>
+        <p style="margin-top:.8rem">Equivalente, por ano, em hora de advogado</p>
+        <b id="s-reais">—</b>
+      </div>
+    </div>
+    <p class="so-leitura" style="margin-top:.9rem">A conta é sua, com os seus números. O sistema não devolve 100% desse tempo: devolve a primeira conversa, a coleta de documentos, a transcrição dos áudios e o resumo do caso — já na sua mão quando você senta para decidir.</p>
+  </section>
+
+  <section id="atendimento">
+    <p class="num">Produto principal</p>
+    <h2>O Jarvis atende, entrevista e entrega o caso pronto para você decidir</h2>
+    <p>O cliente conversa pelo WhatsApp do escritório, do jeito que ele já conversa. Do outro lado, um assistente que entende texto, áudio, PDF e foto, faz as perguntas certas, organiza tudo numa pasta e chama você no momento em que a decisão é jurídica.</p>
+    <p class="destaque">O que vai para o cliente é texto conferido pelo sistema. Orientação jurídica, prazo, previsão de resultado e valor não saem sem o advogado.</p>
+
+    <div class="demo">
+      <div class="demo-topo">
+        <span>demonstração</span>
+        <div>Caso novo, do primeiro oi à proposta enviada</div>
+      </div>
+      <div class="demo-corpo" id="demo-corpo" aria-live="polite"></div>
+      <div class="demo-pe">
+        <button class="bt" id="bt-proximo">Avançar a conversa</button>
+        <button class="bt sec" id="bt-reiniciar">Começar de novo</button>
+        <span class="passo-conta" id="passo-conta">passo 0 de 0</span>
+      </div>
+    </div>
+    <p class="so-leitura" style="margin-top:.9rem">Tudo o que aparece acima é fluxo real do sistema em produção. Os nomes e valores são fictícios.</p>
+  </section>
+
+  <section id="produtos">
+    <p class="num">O que oferecemos</p>
+    <h2>Oito frentes, escolhidas uma a uma</h2>
+    <p>Ninguém precisa comprar tudo. Cada frente funciona sozinha, e a ordem de implantação é decidida pelo que dói mais no seu escritório.</p>
+
+    <div class="produtos">
+      <div class="cartao">
+        <span class="chip ar">em operação</span>
+        <h3>Atendimento no WhatsApp</h3>
+        <p>Menu de caminhos, entrevista do caso novo conduzida por IA, leitura de documento e áudio, pasta por contato e aviso resumido para o advogado.</p>
+        <p class="ganho"><b>O que muda:</b> ninguém fica sem resposta, e o caso chega organizado.</p>
+      </div>
+      <div class="cartao">
+        <span class="chip ar">em operação</span>
+        <h3>Painel de gestão do escritório</h3>
+        <p>Processos, clientes, prazos, documentos e financeiro num só lugar, alimentado pelas publicações oficiais e pelo próprio atendimento.</p>
+        <p class="ganho"><b>O que muda:</b> a situação do escritório deixa de morar na sua cabeça.</p>
+      </div>
+      <div class="cartao">
+        <span class="chip obra">em implantação</span>
+        <h3>CRM integrado à gestão</h3>
+        <p>Cada contato com um papel (cliente, lead, colega), esteira comercial com etapas e responsável, proposta e retomada ligadas ao caso e ao financeiro.</p>
+        <p class="ganho"><b>O que muda:</b> lead parado passa a ser cobrado pelo sistema, não pela memória.</p>
+      </div>
+      <div class="cartao">
+        <span class="chip ar">em operação</span>
+        <h3>Prazos e publicações</h3>
+        <p>Publicações pela OAB e avisos do tribunal viram cartão de prazo e evento na agenda, com lembrete e marcação de conferência.</p>
+        <p class="ganho"><b>O que muda:</b> prazo deixa de depender de quem lembrou de olhar.</p>
+      </div>
+      <div class="cartao">
+        <span class="chip ar">em operação</span>
+        <h3>Proposta e documentos</h3>
+        <p>Proposta de honorários, procuração, declaração e contrato em Word com a identidade visual do escritório, versionados, prontos para sua revisão.</p>
+        <p class="ganho"><b>O que muda:</b> contrato fechado no primeiro atendimento, não três dias depois.</p>
+      </div>
+      <div class="cartao">
+        <span class="chip ar">em operação</span>
+        <h3>Financeiro com Open Finance</h3>
+        <p>Extrato das contas do escritório entrando sozinho, classificação ditada por mensagem e baixa automática das parcelas de honorários.</p>
+        <p class="ganho"><b>O que muda:</b> caixa atualizado sem planilha e sem digitação.</p>
+      </div>
+      <div class="cartao">
+        <span class="chip sob">sob encomenda</span>
+        <h3>Presença nas redes</h3>
+        <p>Publicação programada no Instagram — posts e stories — com conteúdo jurídico que cita fonte oficial e passa pela sua aprovação antes de ir ao ar.</p>
+        <p class="ganho"><b>O que muda:</b> perfil ativo toda semana sem você virar produtor de conteúdo.</p>
+      </div>
+      <div class="cartao">
+        <span class="chip sob">sob encomenda</span>
+        <h3>Landing page e captação</h3>
+        <p>Página de captura com a cara do escritório; quem preenche cai direto no WhatsApp e no CRM, já classificado pela área do caso.</p>
+        <p class="ganho"><b>O que muda:</b> o interessado entra na esteira no mesmo minuto em que chegou.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="caminho">
+    <p class="num">O fluxo completo</p>
+    <h2>Do primeiro oi ao contrato assinado</h2>
+    <p>O advogado entra em três pontos: os valores, a revisão da proposta e o sim do envio. O resto acontece sem ele.</p>
+
+    <ol class="linha-tempo">
+      <li><span class="quem">cliente</span><b>Escreve no WhatsApp do escritório</b><small>Recebe o menu de caminhos. Se alguém do escritório falou com ele nas últimas 12 horas, a IA nem entra na conversa.</small></li>
+      <li><span class="quem">sistema</span><b>Entrevista o caso</b><small>Uma ou duas perguntas por vez, pede os documentos que faltam, transcreve os áudios e guarda tudo na pasta daquele contato.</small></li>
+      <li><span class="quem">advogado</span><b>Recebe a pré-análise</b><small>Resumo, enquadramento, viabilidade, o que confirmar, o que falta e a referência da tabela de honorários da seccional.</small></li>
+      <li><span class="quem">advogado</span><b>Informa os honorários</b><small>Cerca de 48 segundos depois, a proposta em Word chega no WhatsApp dele, com o texto sugerido para o cliente. Nada foi enviado ainda.</small></li>
+      <li><span class="quem">advogado</span><b>Revisa e libera</b><small>Pode editar e enviar sozinho, pedir ajuste, pedir só o PDF ou dizer “pode enviar”. O envio exige prévia e confirmação.</small></li>
+      <li><span class="quem">cliente</span><b>Recebe a proposta em PDF e agenda</b><small>Escolhe presencial ou videoconferência num horário livre; o compromisso entra na agenda com lembretes.</small></li>
+      <li><span class="quem">sistema</span><b>Contrata e acompanha</b><small>Kit de contratação gerado, parcelas no financeiro, PIX baixando a parcela certa e o processo entrando na carteira pelas publicações oficiais.</small></li>
+    </ol>
+  </section>
+
+  <section id="sigilo">
+    <p class="num">A pergunta que todo advogado faz primeiro</p>
+    <h2>O dado do cliente fica no seu escritório, e você decide tudo</h2>
+    <p>Sigilo profissional não é uma configuração que se liga depois. É o desenho do sistema, e é a parte que mais revisamos.</p>
+
+    <ul class="lista">
+      <li><b>Nada com efeito externo acontece sem o seu sim.</b><small>Enviar proposta, marcar compromisso, baixar pagamento: o sistema mostra uma prévia com destinatário, arquivo e um código de uso único, e só executa depois da sua confirmação com aquele código.</small></li>
+      <li><b>Os arquivos ficam na máquina do escritório.</b><small>Pastas dos casos, documentos e transcrições não vão para servidor de terceiro. O servidor na internet guarda apenas o necessário para o WhatsApp funcionar.</small></li>
+      <li><b>Ao cliente, só texto conferido.</b><small>A IA interpreta e resume; o que sai é texto aprovado antes. Sem orientação jurídica, sem prazo, sem previsão de resultado, sem valor.</small></li>
+      <li><b>Honorário é decisão sua.</b><small>O sistema não tem valor padrão, não calcula honorários e se recusa a gerar proposta sem o valor que você ditar. Os valores entram no documento sem passar por modelo de IA.</small></li>
+      <li><b>Você assume a conversa quando quiser.</b><small>Um comando tira a IA da conversa na hora; outro devolve. Toda mudança no atendimento é testada primeiro no número do próprio advogado.</small></li>
+      <li><b>Leitura onde basta ler.</b><small>E-mail, extrato bancário e consulta processual são acessados apenas para leitura. O sistema não envia, não apaga e não toma ciência de intimação no seu lugar.</small></li>
+      <li><b>Prazo calculado por máquina é sempre provisório.</b><small>Entra marcado para conferência, e essa regra nunca foi flexibilizada.</small></li>
+    </ul>
+  </section>
+
+  <section id="prova">
+    <p class="num">Por que não é experimento</p>
+    <h2>Isso já apanhou na vida real</h2>
+    <p>O sistema nasceu dentro de um escritório em funcionamento, atendendo clientes de verdade, com prazo correndo. Cada regra dele existe porque algo deu errado antes.</p>
+
+    <div class="stats">
+      <div class="stat"><b>set/2026</b><small>em operação contínua desde então</small></div>
+      <div class="stat"><b>48 s</b><small>do pedido à proposta em Word pronta</small></div>
+      <div class="stat"><b>0,75 s</b><small>para transcrever um áudio do cliente</small></div>
+      <div class="stat"><b>234</b><small>testes automáticos antes de cada mudança</small></div>
+    </div>
+
+    <h3>Três erros que já pagamos para você não pagar</h3>
+    <ul class="lista">
+      <li><b>Crédito de IA acabou e parou o atendimento.</b><small>Hoje há recarga automática, vigilância do saldo e aviso que chega em quem decide. Uma única chave de acesso é ponto único de falha.</small></li>
+      <li><b>O menu automático foi para banco e loja.</b><small>Contas automáticas também escrevem no WhatsApp do escritório. Hoje existe lista de exclusão e acompanhamento próximo nos primeiros dias.</small></li>
+      <li><b>A IA relativizou a tese afirmada pelo advogado.</b><small>Hoje o fato e a tese que você informa entram afirmados, e a pré-análise automática não decide viabilidade no seu lugar.</small></li>
+    </ul>
+  </section>
+
+  <section id="implantacao">
+    <p class="num">Como começa</p>
+    <h2>Diagnóstico, piloto, operação</h2>
+    <p>Não há instalação de pacote fechado. A implantação acompanha a forma como o seu escritório já trabalha.</p>
+
+    <ol class="linha-tempo">
+      <li><span class="quem">etapa 1 &middot; conversa de 40 minutos</span><b>Diagnóstico</b><small>O que o escritório faz hoje, quantos contatos chegam, onde o tempo escapa e qual frente devolve mais rápido. Sem custo e sem compromisso.</small></li>
+      <li><span class="quem">etapa 2 &middot; 2 a 4 semanas</span><b>Piloto no seu número</b><small>Canal controlado, triagem e pasta por contato. Tudo testado primeiro no número do próprio advogado, antes de encostar em cliente.</small></li>
+      <li><span class="quem">etapa 3 &middot; contínuo</span><b>Operação e acompanhamento</b><small>As frentes escolhidas entram uma por vez, com backup antes de cada mudança e retorno ao estado anterior em minutos.</small></li>
+    </ol>
+
+    <div class="alerta">
+      <p><b>Investimento sob medida.</b> O valor depende das frentes escolhidas e do tamanho do escritório, e é apresentado por escrito depois do diagnóstico. Sem o diagnóstico, qualquer número seria chute.</p>
+    </div>
+  </section>
+
+  <section id="perguntas">
+    <p class="num">Perguntas que todo escritório faz</p>
+    <h2>As dúvidas antes da primeira conversa</h2>
+
+    <details>
+      <summary>Meu cliente vai perceber que está falando com um robô?</summary>
+      <p>Ele percebe que está sendo atendido com organização. O sistema se apresenta como assistente do escritório, não finge ser você, e nenhuma orientação jurídica sai dele. Na primeira pergunta que exija advogado, a conversa vai para você — e você pode assumir a qualquer momento com um comando.</p>
+    </details>
+    <details>
+      <summary>Isso é compatível com o Código de Ética e com o Provimento 205/2021?</summary>
+      <p>O software é fornecido por empresa de tecnologia, não por sociedade de advogados, e as marcas são deliberadamente separadas. O sistema organiza o atendimento de quem já procurou o escritório; ele não prospecta terceiros nem faz captação. O que o escritório publica nas redes continua sendo decisão e responsabilidade do advogado, com a aprovação dele antes de cada publicação.</p>
+    </details>
+    <details>
+      <summary>Preciso trocar o sistema que já uso?</summary>
+      <p>Não. A entrada é pelo WhatsApp, que o escritório já usa, e o painel pode conviver com o que estiver em funcionamento. A migração de dados, quando faz sentido, é feita com cópia preservada e possibilidade de voltar atrás.</p>
+    </details>
+    <details>
+      <summary>Onde ficam os dados dos meus clientes?</summary>
+      <p>No computador do escritório. O servidor na internet guarda apenas o mínimo para o WhatsApp funcionar, com acesso só por chave e nenhuma porta aberta além das necessárias. O tratamento segue a LGPD e o dever de sigilo profissional.</p>
+    </details>
+    <details>
+      <summary>E se a internet cair, ou a IA ficar fora do ar?</summary>
+      <p>O canal continua recebendo e nada se perde. Transcrição de áudio e respostas operacionais rodam em modelo local, dentro do escritório. O que depende de nuvem espera e é avisado, em vez de responder errado.</p>
+    </details>
+    <details>
+      <summary>Preciso de equipe de tecnologia no escritório?</summary>
+      <p>Não. Implantação, manutenção, backup e correção são nossos. Do seu lado, o necessário é o número do escritório, o computador onde ficam os dados e as decisões que só o advogado pode tomar.</p>
+    </details>
+    <details>
+      <summary>Funciona com a minha seccional e com os meus tribunais?</summary>
+      <p>As publicações vêm das APIs públicas do CNJ, consultadas pela OAB do escritório: vale para qualquer seccional e para os tribunais que publicam ali. O acesso ao PJe continua sendo seu, com certificado e segundo fator — o sistema não entra no PJe no seu lugar.</p>
+    </details>
+
+    <div class="cta">
+      <h2>Quer ver isso rodando com o caso do seu escritório?</h2>
+      <p>Demonstração de 30 minutos, com um caso real seu, no número do seu escritório. Você vê a entrevista acontecendo, a pré-análise chegando e a proposta sendo gerada, sem compromisso.</p>
+      <p class="contato">
+        Agendamento direto com a equipe da Carajás HubTech<br>
+        Marabá/PA &middot; atendimento remoto em todo o Brasil
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <h3>Carajás HubTech</h3>
+    <p>Tecnologia e automação para escritórios de advocacia</p>
+    <p class="assina" style="margin-top:1.4rem">Apresentação comercial v1 &middot; outubro de 2026</p>
+    <p style="margin:0">Marabá, Pará</p>
+
+    <p class="fontes">
+      Este material descreve software e serviços de uma empresa de tecnologia. Não é publicidade de serviços de advocacia e não constitui oferta de atividade privativa de advogado.
+      Os números apresentados foram medidos em operação real, num único escritório, entre setembro e outubro de 2026, e variam conforme o volume e a infraestrutura de cada contratante.
+      Nenhum dado de cliente, nome, número de telefone ou número de processo consta deste documento; os exemplos são fictícios.
+      Funcionalidades marcadas como “em implantação” ou “sob encomenda” têm prazo e escopo definidos em proposta específica.
+    </p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ----- barra de progresso de leitura + seção ativa ----- */
+  var barra = document.getElementById('preenchimento');
+  var links = Array.prototype.slice.call(document.querySelectorAll('.navlinks a'));
+  var secoes = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+
+  function aoRolar(){
+    var alcance = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = alcance > 0 ? (window.scrollY / alcance) * 100 : 0;
+    barra.style.width = Math.min(100, Math.max(0, pct)) + '%';
+
+    var ativo = 0;
+    for (var i = 0; i < secoes.length; i++){
+      if (secoes[i] && secoes[i].getBoundingClientRect().top <= 140) ativo = i;
+    }
+    links.forEach(function(a, i){
+      if (i === ativo) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    });
+  }
+  window.addEventListener('scroll', aoRolar, {passive:true});
+  window.addEventListener('resize', aoRolar);
+  aoRolar();
+
+  /* ----- calculadora de triagem manual ----- */
+  var ctt = document.getElementById('c-contatos');
+  var min = document.getElementById('c-minutos');
+  var hora = document.getElementById('c-hora');
+  var sHoras = document.getElementById('s-horas');
+  var sReais = document.getElementById('s-reais');
+
+  function num(el, padrao){
+    var v = parseFloat(el.value);
+    return isFinite(v) && v >= 0 ? v : padrao;
+  }
+  function moeda(v){
+    return v.toLocaleString('pt-BR', {style:'currency', currency:'BRL', maximumFractionDigits:0});
+  }
+  function calcular(){
+    var semanais = num(ctt, 0), minutos = num(min, 0), valor = num(hora, 0);
+    var horasMes = (semanais * minutos * 4.33) / 60;
+    sHoras.textContent = horasMes.toLocaleString('pt-BR', {maximumFractionDigits:1}) + ' horas';
+    sReais.textContent = moeda(horasMes * 12 * valor);
+  }
+  [ctt, min, hora].forEach(function(el){
+    el.addEventListener('input', calcular);
+  });
+  calcular();
+
+  /* ----- demonstração da conversa, passo a passo ----- */
+  var roteiro = [
+    {de:'cliente', quem:'Cliente, 9h12', texto:'Bom dia, preciso falar com um advogado'},
+    {de:'jarvis', quem:'Assistente do escritório', texto:'Bom dia! Sou o assistente do escritório. Para te direcionar: 1 Advocacia, 2 Negócios e inovação, 3 Pessoal.'},
+    {de:'cliente', quem:'Cliente', texto:'1'},
+    {de:'jarvis', quem:'Assistente do escritório', texto:'Perfeito. Como é o seu nome completo? E me conte, com suas palavras, o que aconteceu.'},
+    {de:'cliente', quem:'Cliente', texto:'🎤 áudio de 1min14 + foto do contrato'},
+    {de:'sistema', quem:'nos bastidores', texto:'Áudio transcrito no computador do escritório em 0,75 s. Contrato identificado e salvo na pasta do contato. Nada saiu da máquina.'},
+    {de:'jarvis', quem:'Assistente do escritório', texto:'Obrigado. Duas perguntas: você chegou a pedir o cancelamento por escrito? E tem o comprovante das parcelas pagas?'},
+    {de:'cliente', quem:'Cliente', texto:'Pedi por e-mail em agosto. Mando os comprovantes agora.'},
+    {de:'jarvis', quem:'Assistente do escritório', texto:'Recebido. O Dr. vai analisar e eu te respondo ainda hoje com os próximos passos.'},
+    {de:'sistema', quem:'nos bastidores', texto:'Pré-análise automática enviada ao advogado: resumo, enquadramento, viabilidade, pontos a confirmar, documentos faltantes e referência da tabela de honorários. O cliente não vê nada disso.'},
+    {de:'advogado', quem:'Advogado', texto:'Jarvis, gera a proposta dessa pasta. R$ 2.500 fixos mais 20% de êxito.'},
+    {de:'sistema', quem:'nos bastidores', texto:'48 segundos depois: proposta em Word na pasta do caso, texto sugerido para o cliente e lista de pontos a conferir — tudo só para o advogado.'},
+    {de:'advogado', quem:'Advogado', texto:'Pode enviar.'},
+    {de:'jarvis', quem:'Assistente, só para o advogado', texto:'Prévia: PDF “Proposta de atendimento”, para o contato ••••-4820. Código AX7K. Confirma?'},
+    {de:'advogado', quem:'Advogado', texto:'Sim'},
+    {de:'jarvis', quem:'Assistente do escritório', texto:'Enviei a proposta em PDF ao cliente, com o convite para agendar a reunião. Responde “agendar” para escolher o horário.'},
+    {de:'cliente', quem:'Cliente, 14h03', texto:'agendar'},
+    {de:'sistema', quem:'nos bastidores', texto:'Cliente escolhe videoconferência às 16h de quinta. O advogado confirma por código e o compromisso entra na agenda, com lembrete um dia e uma hora antes.'}
+  ];
+
+  var corpo = document.getElementById('demo-corpo');
+  var btProx = document.getElementById('bt-proximo');
+  var btRe = document.getElementById('bt-reiniciar');
+  var conta = document.getElementById('passo-conta');
+  var passo = 0;
+
+  function marcar(){
+    conta.textContent = 'passo ' + passo + ' de ' + roteiro.length;
+    btProx.disabled = passo >= roteiro.length;
+    btProx.textContent = passo === 0 ? 'Começar a conversa'
+      : (passo >= roteiro.length ? 'Fim da demonstração' : 'Avançar a conversa');
+  }
+  function proximo(){
+    if (passo >= roteiro.length) return;
+    var m = roteiro[passo];
+    var div = document.createElement('div');
+    div.className = 'msg ' + m.de;
+    var b = document.createElement('b');
+    b.textContent = m.quem;
+    var p = document.createElement('span');
+    p.textContent = m.texto;
+    div.appendChild(b);
+    div.appendChild(p);
+    corpo.appendChild(div);
+    passo++;
+    marcar();
+  }
+  function reiniciar(){
+    corpo.innerHTML = '';
+    passo = 0;
+    marcar();
+  }
+  btProx.addEventListener('click', proximo);
+  btRe.addEventListener('click', reiniciar);
+  reiniciar();
+})();
+</script>
+</body>
+</html>
