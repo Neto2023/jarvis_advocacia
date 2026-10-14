@@ -2,9 +2,9 @@
 
 **Sistema de automação para otimização de atendimento e gestão de escritórios de advocacia utilizando inteligência artificial.**
 
-> A tecnologia prepara, o advogado decide.
+> **Advogue. O Jarvis cuida do resto.**
 
-[![Jarvis: um assistente que trabalha no seu escritório. Você só diz sim.](card.png)](https://neto2023.github.io/jarvis_advocacia/)
+[![Advogue. O Jarvis cuida do resto.](card.png)](https://neto2023.github.io/jarvis_advocacia/)
 
 👉 **[Converse com o Jarvis agora](https://neto2023.github.io/jarvis_advocacia/)**: página interativa, com o Jarvis simulado (por texto e por voz), as travas de segurança para testar, a calculadora do tempo gasto hoje em triagem e o plano de implantação montado na hora.
 

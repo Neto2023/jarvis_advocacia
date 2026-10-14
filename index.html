@@ -4,38 +4,39 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<title>Jarvis: o assistente do seu escritório de advocacia | Carajás HubTech</title>
-<meta name="description" content="Converse com o Jarvis aqui mesmo: ele atende o WhatsApp, prepara a proposta, vigia prazos e envia por WhatsApp e e-mail, sempre com o seu sim. Por texto ou por voz. Em operação real desde setembro de 2026.">
+<title>Jarvis: advogue, ele cuida do resto | Carajás HubTech</title>
+<meta name="description" content="O Jarvis atende seus clientes no WhatsApp a qualquer hora, transforma o primeiro oi em proposta pronta em 48 segundos, vigia cada prazo e manda documentos e e-mails por você. Converse com ele agora.">
 <link rel="canonical" href="https://neto2023.github.io/jarvis_advocacia/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Carajás HubTech">
-<meta property="og:title" content="Jarvis: um assistente que trabalha no seu escritório. Você só diz sim.">
-<meta property="og:description" content="Converse com ele agora: atende o WhatsApp, prepara a proposta, vigia prazos e envia por WhatsApp e e-mail, sempre com a sua confirmação.">
+<meta property="og:title" content="Advogue. O Jarvis cuida do resto.">
+<meta property="og:description" content="Clientes atendidos a qualquer hora, proposta pronta em 48 segundos, prazos vigiados todo dia. Converse com o Jarvis agora.">
 <meta property="og:url" content="https://neto2023.github.io/jarvis_advocacia/">
 <meta property="og:image" content="https://neto2023.github.io/jarvis_advocacia/card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Um assistente que trabalha no seu escritório. Você só diz sim. Prévia de envio confirmada com sim.">
+<meta property="og:image:alt" content="Advogue. O Jarvis cuida do resto. Carajás HubTech.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://neto2023.github.io/jarvis_advocacia/card.png">
-<link rel="icon" type="image/svg+xml" href="emblema.svg">
+<link rel="icon" type="image/png" href="favicon.png">
 <meta name="theme-color" content="#0F1513">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Saira:wght@700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  /* Paleta da Carajás HubTech, tirada do logo: preto, ouro, esmeralda, cobre, azul royal e creme. */
-  --grafite:#0F1513;--grafite-2:#18201C;--azul:#0F6B52;--azul-claro:#16876A;--azul-esc:#0A4636;
-  --ouro:#C9A464;--ouro-claro:#E4C78E;--ouro-esc:#8F6B33;--cobre:#B8653A;--royal:#1C4FC4;--creme:#EFE6D2;
-  --tint:#EEF5F1;--tint-2:#D6E7DE;--linha:#E4DED1;--slate:#5C655F;--papel:#FBF8F2;--fundo:#F4F0E6;
-  --ok:#1C7A4A;--ok-soft:#E6F4EC;--warn:#9A5A1F;--warn-soft:#FBEFE2;--erro:#A3261E;--erro-soft:#FBE9E7;
-  --wrap:56rem;
-  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
-  --display:Archivo,"Segoe UI",system-ui,sans-serif;
-  --marca:Saira,Archivo,"Segoe UI",sans-serif;
+  /* Paleta medida no logo original da Carajás HubTech. */
+  --grafite:#0E1415;--grafite-2:#172022;--azul:#05463E;--azul-claro:#0A5E52;--azul-esc:#012A25;
+  --ouro:#C19F66;--ouro-claro:#DBB172;--ouro-esc:#674928;--cobre:#C67244;--royal:#004496;--creme:#E9DBC4;
+  --tint:#EDF4F1;--tint-2:#D3E5DE;--linha:#E6E0D3;--slate:#5B6462;--papel:#FBF8F2;--fundo:#F4EFE5;
+  --ok:#11634F;--ok-soft:#E4F2EC;--warn:#8B482A;--warn-soft:#FBEEE3;--erro:#A3261E;--erro-soft:#FBE9E7;
+  --wrap:58rem;
+  --sans:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --display:Sora,Inter,"Segoe UI",sans-serif;
+  --rotulo:Sora,Inter,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --marca:Sora,Inter,sans-serif;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
@@ -64,7 +65,7 @@ h1 em{font-style:normal;color:#E4C78E}
 .porta small{display:block;color:#C7D3E4;font-size:.84rem;line-height:1.4;margin-top:.2rem}
 .porta[aria-pressed="true"] small{color:#E4ECFB}
 .topo-acoes{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.2rem;align-items:center}
-.selo{display:flex;flex-wrap:wrap;gap:.3rem .9rem;font-family:var(--mono);font-size:.68rem;color:#8495AB;letter-spacing:.05em;margin-top:1.4rem}
+.selo{display:flex;flex-wrap:wrap;gap:.3rem .9rem;font-family:var(--mono);font-size:.68rem;color:#9AA39E;letter-spacing:.05em;margin-top:1.4rem}
 .selo span+span::before{content:"· ";color:#4A5B72}
 
 /* ---------- botões ---------- */
@@ -187,7 +188,7 @@ p{margin:0 0 .95rem}
 .plano li{margin:.3rem 0}
 .plano li small{color:#C9A464;font-family:var(--mono);font-size:.72rem}
 .plano pre{white-space:pre-wrap;background:#0F151D;border:1px solid #2C3848;border-radius:10px;padding:.8rem;font-family:var(--mono);font-size:.78rem;color:#C7D3E4;margin:.4rem 0 .8rem}
-.plano .vazio{color:#8495AB}
+.plano .vazio{color:#9AA39E}
 
 /* ---------- prova ---------- */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:.7rem;margin:1.2rem 0}
@@ -254,7 +255,7 @@ footer b{color:#fff}
 
 /* ---------- identidade Carajás HubTech ---------- */
 header{background:var(--grafite)}
-header::after{background:radial-gradient(circle at 70% 40%,rgba(201,164,100,.30),transparent 55%),radial-gradient(circle at 20% 120%,rgba(15,107,82,.45),transparent 55%);right:-10%;top:-30%;width:90%;height:170%}
+header::after{background:radial-gradient(ellipse 60% 70% at 85% 15%,rgba(219,177,114,.26),transparent 70%),radial-gradient(ellipse 55% 60% at 5% 100%,rgba(5,70,62,.55),transparent 70%);inset:0;width:auto;height:auto;right:0;top:0}
 .marca{display:flex;align-items:center;gap:.8rem;margin:0 0 1.6rem;text-decoration:none}
 .marca img{width:3.6rem;height:auto;flex:none}
 .marca span{display:flex;flex-direction:column;line-height:1}
@@ -291,16 +292,46 @@ footer .marca{margin:0 0 .9rem}
 footer .marca img{width:2.8rem}
 footer .marca b{font-size:1.2rem}
 footer a{color:var(--ouro)}
+
+/* ---------- tipografia refinada (Sora + Inter) e logo original ---------- */
+body{font-family:var(--sans);font-size:16.5px;line-height:1.65;letter-spacing:-.005em;-webkit-font-smoothing:antialiased}
+h1{font-family:var(--display);font-weight:700;letter-spacing:-.035em;line-height:1.02}
+h2{font-family:var(--display);font-weight:700;letter-spacing:-.025em}
+h3,.porta b,.frente b,.trava-card b,.trilha b,.erro summary{font-family:var(--display);font-weight:600;letter-spacing:-.01em}
+.eyebrow,.num,.portas-tit{font-family:var(--rotulo);font-weight:600;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase}
+.selo{font-family:var(--sans);font-size:.78rem;letter-spacing:0;color:#9AA39E}
+.navbar{background:rgba(251,248,242,.92);border-bottom-color:var(--linha)}
+.navlinks{gap:.15rem;padding:.55rem 0}
+.navlinks a{font-family:var(--sans);font-size:.88rem;font-weight:500;letter-spacing:-.005em;text-transform:none;color:#4A5250;padding:.42rem .8rem;border-radius:999px}
+.navlinks a:hover{background:var(--tint);color:var(--azul)}
+.navlinks a[aria-current="true"]{background:var(--grafite);color:var(--creme)}
+.bt{font-family:var(--sans);font-weight:600;letter-spacing:-.005em;border-radius:999px;padding:.68rem 1.25rem}
+.chip,.conq,.frente .rec,.trilha .quem,.tel-topo small,.msg .de,.plano li small,.para-voce b{font-family:var(--rotulo);font-weight:600;letter-spacing:.06em}
+.modos button,.voz-barra .teclas button{font-family:var(--sans);font-weight:500;font-size:.78rem}
+.calc output,.stat b,.calc-saida b{font-family:var(--display);font-weight:700;letter-spacing:-.02em}
+.stat b{font-size:1.75rem}
+.passo-conta{font-family:var(--sans)}
+.marca{gap:.75rem}
+.marca img{width:3.9rem;height:auto}
+.marca img.nome{width:9.4rem;height:auto}
+footer .marca img{width:3rem}
+footer .marca img.nome{width:7.6rem}
+.tel-topo .av{font-family:var(--display)}
+.promessas{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.6rem;margin:1.4rem 0 1.8rem}
+.promessas div{border:1px solid #2A3533;border-radius:14px;padding:.85rem 1rem;background:rgba(255,255,255,.03)}
+.promessas b{display:block;font-family:var(--display);font-size:1.45rem;font-weight:700;letter-spacing:-.03em;color:var(--ouro-claro);line-height:1.15}
+.promessas small{display:block;color:#B9C2BE;font-size:.88rem;margin-top:.15rem}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap">
-    <a class="marca" href="#" aria-label="Carajás HubTech"><img src="emblema.svg" alt="" width="58" height="49"><span><b>CARAJÁS</b><small>HUBTECH</small></span></a>
+    <a class="marca" href="#" aria-label="Carajás HubTech"><img src="logo-simbolo.png" alt="" width="66" height="55"><img class="nome" src="logo-nome.png" alt="Carajás HubTech" width="150" height="34"></a>
     <p class="eyebrow">Tecnologia para escritórios de advocacia &middot; Marabá/PA</p>
-    <h1>Um assistente que trabalha no seu escritório. <em>Você só diz sim.</em></h1>
-    <p class="lede">O Jarvis atende o WhatsApp, entrevista o cliente novo, prepara a proposta, vigia prazos e publicações e envia o que você mandar, por WhatsApp ou e-mail. Você fala com ele por texto ou por voz. E nada sai sem a sua confirmação.</p>
+    <h1>Advogue. <em>O Jarvis cuida do resto.</em></h1>
+    <p class="lede">Ele atende seus clientes no WhatsApp a qualquer hora, transforma o primeiro "oi" numa proposta pronta em 48 segundos, vigia cada prazo e publicação e manda documentos e e-mails por você. Do celular ou de viva voz, no computador do escritório.</p>
+    <div class="promessas"><div><b>24 horas</b><small>cliente atendido na hora, até de madrugada</small></div><div><b>48 segundos</b><small>do pedido à proposta pronta, com a sua marca</small></div><div><b>Todo dia</b><small>publicações conferidas e prazos na sua agenda</small></div></div>
     <p class="portas-tit">Para começar: qual é o seu escritório?</p>
     <div class="portas" id="portas" role="group" aria-label="Perfil do escritório"></div>
     <div class="topo-acoes">
@@ -308,7 +339,7 @@ footer a{color:var(--ouro)}
       <button class="bt claro" id="bt-tour" type="button">Tour de 1 minuto</button>
       <button class="bt claro" id="bt-atalhos" type="button" aria-label="Atalhos de teclado"><kbd>?</kbd> atalhos</button>
     </div>
-    <p class="selo"><span>Em operação real desde set/2026</span><span>Apresentação v2</span><span>Marabá/PA</span><span>outubro de 2026</span></p>
+    <p class="selo"><span>Em operação real desde setembro de 2026</span><span>Feito dentro de um escritório de advocacia</span><span>Marabá/PA</span></p>
   </div>
 </header>
 
@@ -329,7 +360,7 @@ footer a{color:var(--ouro)}
 
   <section id="experimente">
     <p class="num">Experimente</p>
-    <h2>Converse com o Jarvis como você conversaria no escritório</h2>
+    <h2>Não leia sobre o Jarvis. Converse com ele.</h2>
     <div class="para-voce" id="para-voce" hidden></div>
     <div class="sim">
       <div class="tel" id="tel">
@@ -371,14 +402,14 @@ footer a{color:var(--ouro)}
 
   <section id="travas">
     <p class="num">A pergunta que todo advogado faz primeiro</p>
-    <h2>Tente fazer o Jarvis errar</h2>
-    <p>Sigilo profissional não é uma configuração que se liga depois. É o desenho do sistema. Clique e veja cada trava agir.</p>
+    <h2>Rápido no trabalho. Implacável no sigilo.</h2>
+    <p>Velocidade sem controle não serve para advocacia. Por isso o Jarvis faz o trabalho pesado sozinho, mas nada sai para cliente sem o seu aval, e o sigilo está no desenho, não numa configuração. Tente passar por cima dele:</p>
     <div class="travas" id="lista-travas"></div>
   </section>
 
   <section id="tempo">
     <p class="num">O dia de hoje</p>
-    <h2>Quanto custa, hoje, entender cada caso que chega?</h2>
+    <h2>Quanto o seu escritório perde, hoje, só para entender quem chegou?</h2>
     <p>Enquanto você está em audiência, três pessoas escreveram no WhatsApp do escritório. Nenhuma disse o nome; duas mandaram áudio. Isso não é advocacia, mas consome hora de advogado. Ajuste com os seus números:</p>
     <div class="calc">
       <div class="calc-linha"><label for="c-contatos">Contatos novos por semana</label><output id="o-contatos"></output><input type="range" id="c-contatos" min="1" max="120" step="1"></div>
@@ -395,7 +426,7 @@ footer a{color:var(--ouro)}
 
   <section id="monte">
     <p class="num">Monte o seu</p>
-    <h2>Escolha as frentes. O plano se monta sozinho.</h2>
+    <h2>Monte o seu Jarvis em 30 segundos.</h2>
     <p>Ninguém precisa contratar tudo. Marque o que interessa; as recomendadas para o seu perfil vêm sinalizadas.</p>
     <div class="frentes" id="frentes"></div>
     <div class="plano" id="plano" aria-live="polite"></div>
@@ -410,7 +441,7 @@ footer a{color:var(--ouro)}
 
   <section id="prova">
     <p class="num">Por que não é experimento</p>
-    <h2>Isso já apanhou na vida real</h2>
+    <h2>Não é promessa. Está rodando.</h2>
     <p>O sistema nasceu dentro de um escritório em funcionamento, com clientes de verdade e prazo correndo. Cada regra existe porque algo deu errado antes, e foi corrigido no mesmo dia.</p>
     <div class="stats">
       <div class="stat"><b>set/2026</b><small>em operação contínua desde então</small></div>
@@ -433,10 +464,10 @@ footer a{color:var(--ouro)}
 
   <section id="contato">
     <div class="cta">
-      <h2>Quer ver isso com um caso real do seu escritório?</h2>
-      <p>Demonstração de 30 minutos, no número do seu escritório: a entrevista acontecendo, a pré-análise chegando, a proposta sendo gerada e a prévia esperando o seu "sim". Sem compromisso. O investimento é sob medida e vem por escrito depois do diagnóstico.</p>
+      <h2>Seu escritório pode estar atendendo agora mesmo.</h2>
+      <p>Em 30 minutos, com um caso real do seu escritório, você vê o Jarvis entrevistar o cliente, entregar a pré-análise e gerar a proposta na sua frente. Sem compromisso. O investimento é sob medida e vem por escrito depois do diagnóstico.</p>
       <div class="acoes" id="acoes-contato"></div>
-      <p class="leve" style="color:#8495AB;margin:.9rem 0 0">Carajás HubTech &middot; WhatsApp (94) 9 9253-1512 &middot; <a href="mailto:atendimento@carajashubtech.com" style="color:#C9A464">atendimento@carajashubtech.com</a> &middot; Marabá/PA, atendimento remoto em todo o Brasil</p>
+      <p class="leve" style="color:#9AA39E;margin:.9rem 0 0">Carajás HubTech &middot; WhatsApp (94) 9 9253-1512 &middot; <a href="mailto:atendimento@carajashubtech.com" style="color:#C9A464">atendimento@carajashubtech.com</a> &middot; Marabá/PA, atendimento remoto em todo o Brasil</p>
     </div>
   </section>
 
@@ -444,7 +475,7 @@ footer a{color:var(--ouro)}
 
 <footer>
   <div class="wrap">
-    <a class="marca" href="#experimente" aria-label="Carajás HubTech"><img src="emblema.svg" alt="" width="58" height="49"><span><b>CARAJÁS</b><small>HUBTECH</small></span></a>Tecnologia e automação para escritórios de advocacia &middot; Marabá, Pará<br><a href="mailto:atendimento@carajashubtech.com" style="color:#C9A464">atendimento@carajashubtech.com</a> &middot; WhatsApp (94) 9 9253-1512
+    <a class="marca" href="#experimente" aria-label="Carajás HubTech"><img src="logo-simbolo.png" alt="" width="66" height="55"><img class="nome" src="logo-nome.png" alt="Carajás HubTech" width="150" height="34"></a>Tecnologia e automação para escritórios de advocacia &middot; Marabá, Pará<br><a href="mailto:atendimento@carajashubtech.com" style="color:#C9A464">atendimento@carajashubtech.com</a> &middot; WhatsApp (94) 9 9253-1512
     <p class="fontes">
       Este material descreve software e serviços de uma empresa de tecnologia. Não é publicidade de serviços de advocacia e não constitui oferta de atividade privativa de advogado.<br>
       Os números foram medidos em operação real, num único escritório, entre setembro e outubro de 2026, e variam conforme o volume e a infraestrutura de cada contratante.<br>
@@ -811,7 +842,7 @@ if("IntersectionObserver" in window){
 var TOUR=[
   ["portas","Comece por você","Escolha o perfil do seu escritório: a calculadora e as frentes recomendadas se ajustam."],
   ["tel","Converse com o Jarvis","Clique nos pedidos. Peça uma proposta, mande um arquivo e veja a prévia que só sai com o seu sim."],
-  ["lista-travas","Tente fazer ele errar","Confirmar com ok, por áudio, mandar a um impostor: cada trava age na sua frente."],
+  ["lista-travas","Implacável no sigilo","Tente confirmar com ok, por áudio, mandar a um impostor: cada trava age na sua frente."],
   ["tempo","Faça a sua conta","Arraste os controles com os seus números e veja quanto tempo a triagem manual custa por ano."],
   ["plano","Monte o seu plano","Marque as frentes. O cronograma e o texto pronto para pedir a demonstração saem na hora."]
 ];
