@@ -19,18 +19,23 @@
 <meta property="og:image:alt" content="Um assistente que trabalha no seu escritório. Você só diz sim. Prévia de envio confirmada com sim.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://neto2023.github.io/jarvis_advocacia/card.png">
+<link rel="icon" type="image/svg+xml" href="emblema.svg">
+<meta name="theme-color" content="#0F1513">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Saira:wght@700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --grafite:#19212C;--grafite-2:#232E3D;--azul:#1E51C1;--azul-claro:#3D77E8;--azul-esc:#163E96;
-  --tint:#EEF3FD;--tint-2:#DDE7FA;--linha:#D9E0EA;--slate:#5B6879;--papel:#FFFFFF;--fundo:#F7F9FC;
-  --ok:#1C7A4A;--ok-soft:#E6F4EC;--warn:#9A6212;--warn-soft:#FBF1DE;--erro:#A3261E;--erro-soft:#FBE9E7;
+  /* Paleta da Carajás HubTech, tirada do logo: preto, ouro, esmeralda, cobre, azul royal e creme. */
+  --grafite:#0F1513;--grafite-2:#18201C;--azul:#0F6B52;--azul-claro:#16876A;--azul-esc:#0A4636;
+  --ouro:#C9A464;--ouro-claro:#E4C78E;--ouro-esc:#8F6B33;--cobre:#B8653A;--royal:#1C4FC4;--creme:#EFE6D2;
+  --tint:#EEF5F1;--tint-2:#D6E7DE;--linha:#E4DED1;--slate:#5C655F;--papel:#FBF8F2;--fundo:#F4F0E6;
+  --ok:#1C7A4A;--ok-soft:#E6F4EC;--warn:#9A5A1F;--warn-soft:#FBEFE2;--erro:#A3261E;--erro-soft:#FBE9E7;
   --wrap:56rem;
   --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
   --display:Archivo,"Segoe UI",system-ui,sans-serif;
+  --marca:Saira,Archivo,"Segoe UI",sans-serif;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
@@ -46,11 +51,11 @@ button{font-family:inherit}
 header{background:var(--grafite);color:#fff;padding:2.6rem 0 2.4rem;position:relative;overflow:hidden}
 header::after{content:"";position:absolute;right:-15%;top:-40%;width:70%;height:180%;background:radial-gradient(circle at center,rgba(30,81,193,.42),transparent 62%);pointer-events:none}
 header .wrap{position:relative;z-index:1}
-.eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#8FB4FF;margin:0 0 1rem}
+.eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#C9A464;margin:0 0 1rem}
 h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,7vw,3.2rem);line-height:1.03;letter-spacing:-.025em;margin:0 0 1rem;max-width:44rem}
-h1 em{font-style:normal;color:#79A6FF}
+h1 em{font-style:normal;color:#E4C78E}
 .lede{font-size:1.06rem;color:#C7D3E4;margin:0 0 1.6rem;max-width:40rem}
-.portas-tit{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#8FB4FF;margin:0 0 .7rem;font-weight:500}
+.portas-tit{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#C9A464;margin:0 0 .7rem;font-weight:500}
 .portas{display:grid;grid-template-columns:repeat(auto-fit,minmax(12.5rem,1fr));gap:.6rem}
 .porta{background:rgba(255,255,255,.06);border:1px solid #3A4A62;color:#fff;border-radius:12px;padding:.85rem .95rem;text-align:left;cursor:pointer;transition:background .15s,border-color .15s,transform .15s}
 .porta:hover{background:rgba(255,255,255,.1);transform:translateY(-1px)}
@@ -102,7 +107,7 @@ p{margin:0 0 .95rem}
 .tel-topo{background:var(--grafite);color:#fff;padding:.7rem 1rem;display:flex;align-items:center;gap:.7rem}
 .tel-topo .av{width:2rem;height:2rem;border-radius:50%;background:var(--azul);display:grid;place-items:center;font-family:var(--display);font-weight:800}
 .tel-topo b{font-size:.95rem;display:block;line-height:1.2}
-.tel-topo small{font-size:.72rem;color:#8FB4FF;font-family:var(--mono)}
+.tel-topo small{font-size:.72rem;color:#C9A464;font-family:var(--mono)}
 .modos{margin-left:auto;display:flex;background:#2C3848;border-radius:8px;padding:2px}
 .modos button{background:none;border:0;color:#C7D3E4;font-size:.75rem;font-family:var(--mono);padding:.3rem .55rem;border-radius:6px;cursor:pointer}
 .modos button[aria-pressed="true"]{background:var(--azul);color:#fff}
@@ -162,7 +167,7 @@ p{margin:0 0 .95rem}
 .calc-saida{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:.6rem;margin-top:.4rem}
 .calc-saida div{background:var(--grafite);color:#fff;border-radius:10px;padding:.9rem 1rem}
 .calc-saida small{display:block;color:#C7D3E4;font-size:.82rem}
-.calc-saida b{font-family:var(--mono);font-size:1.4rem;color:#79A6FF;display:block;line-height:1.3}
+.calc-saida b{font-family:var(--mono);font-size:1.4rem;color:#E4C78E;display:block;line-height:1.3}
 
 /* ---------- monte o seu ---------- */
 .frentes{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.7rem}
@@ -171,7 +176,7 @@ p{margin:0 0 .95rem}
 .frente:has(input:checked){border-color:var(--azul);background:var(--tint)}
 .frente b{display:block;font-family:var(--display);font-size:.98rem}
 .frente small{display:block;color:var(--slate);font-size:.86rem;line-height:1.45;margin-top:.2rem}
-.frente .chip{position:absolute;right:.7rem;top:.75rem}
+.frente .chip{display:inline-block;margin-bottom:.35rem}
 .frente .rec{display:none;font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--azul);margin-top:.35rem}
 .frente.recomendada .rec{display:block}
 .chip{display:inline-block;font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;padding:.15rem .4rem;border-radius:4px;font-weight:500}
@@ -180,7 +185,7 @@ p{margin:0 0 .95rem}
 .plano h3{color:#fff;margin-top:0}
 .plano ol{margin:.4rem 0 1rem;padding-left:1.2rem;color:#E4ECFB}
 .plano li{margin:.3rem 0}
-.plano li small{color:#8FB4FF;font-family:var(--mono);font-size:.72rem}
+.plano li small{color:#C9A464;font-family:var(--mono);font-size:.72rem}
 .plano pre{white-space:pre-wrap;background:#0F151D;border:1px solid #2C3848;border-radius:10px;padding:.8rem;font-family:var(--mono);font-size:.78rem;color:#C7D3E4;margin:.4rem 0 .8rem}
 .plano .vazio{color:#8495AB}
 
@@ -246,13 +251,54 @@ footer b{color:#fff}
 .atalhos div{background:#fff;border-radius:14px;padding:1.2rem 1.3rem;max-width:24rem;width:100%}
 .atalhos dl{display:grid;grid-template-columns:auto 1fr;gap:.45rem .8rem;margin:.6rem 0 0;font-size:.92rem}
 .atalhos dt{text-align:right}
+
+/* ---------- identidade Carajás HubTech ---------- */
+header{background:var(--grafite)}
+header::after{background:radial-gradient(circle at 70% 40%,rgba(201,164,100,.30),transparent 55%),radial-gradient(circle at 20% 120%,rgba(15,107,82,.45),transparent 55%);right:-10%;top:-30%;width:90%;height:170%}
+.marca{display:flex;align-items:center;gap:.8rem;margin:0 0 1.6rem;text-decoration:none}
+.marca img{width:3.6rem;height:auto;flex:none}
+.marca span{display:flex;flex-direction:column;line-height:1}
+.marca b{font-family:var(--marca);font-weight:800;font-size:1.55rem;letter-spacing:.04em;color:var(--creme)}
+.marca small{display:flex;align-items:center;gap:.45rem;font-family:var(--marca);font-weight:700;font-size:.66rem;letter-spacing:.52em;color:var(--ouro);margin-top:.35rem}
+.marca small::before,.marca small::after{content:"";height:2px;width:.9rem;background:var(--royal)}
+.eyebrow{color:var(--ouro)}
+h1 em{color:var(--ouro-claro)}
+.portas-tit{color:var(--ouro)}
+.porta{border-color:#2E3A33}
+.porta[aria-pressed="true"]{background:var(--azul);border-color:var(--ouro)}
+header .bt:not(.claro),.cta .bt:not(.claro),.plano .bt:not(.claro){background:linear-gradient(180deg,var(--ouro-claro),var(--ouro));border-color:var(--ouro);color:var(--grafite)}
+header .bt:not(.claro):hover,.cta .bt:not(.claro):hover,.plano .bt:not(.claro):hover{background:var(--ouro-claro);color:var(--grafite)}
+.bt.claro{border-color:#5E6B5F}
+.barra span{background:linear-gradient(90deg,var(--azul),var(--ouro))}
+.num{color:var(--cobre)}
+.tel-topo .av{background:var(--azul);color:var(--creme);border:2px solid var(--ouro)}
+.tel-topo small{color:var(--ouro)}
+.modos{background:#26302B}
+.voz-barra .teclas button{background:#26302B;border-color:#3A4A40}
+.calc{background:var(--fundo);border-color:var(--linha)}
+.calc-saida b{color:var(--ouro-claro)}
+.calc input[type=range]{accent-color:var(--cobre)}
+.frente input{accent-color:var(--azul)}
+.chip.obra{background:#F6E6D9;color:var(--cobre)}
+.chip.sob{background:#E3EAFA;color:var(--royal)}
+.plano small,.plano li small{color:var(--ouro)}
+.stat b{color:var(--azul)}
+.trilha li.visto::before{background:var(--azul);color:var(--creme)}
+.trilha .quem{color:var(--cobre)}
+.cta{background:var(--grafite);background-image:radial-gradient(circle at 100% 0,rgba(201,164,100,.22),transparent 50%)}
+.cta h2{color:var(--creme)}
+footer .marca{margin:0 0 .9rem}
+footer .marca img{width:2.8rem}
+footer .marca b{font-size:1.2rem}
+footer a{color:var(--ouro)}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap">
-    <p class="eyebrow">Carajás HubTech &middot; tecnologia para escritórios de advocacia</p>
+    <a class="marca" href="#" aria-label="Carajás HubTech"><img src="emblema.svg" alt="" width="58" height="49"><span><b>CARAJÁS</b><small>HUBTECH</small></span></a>
+    <p class="eyebrow">Tecnologia para escritórios de advocacia &middot; Marabá/PA</p>
     <h1>Um assistente que trabalha no seu escritório. <em>Você só diz sim.</em></h1>
     <p class="lede">O Jarvis atende o WhatsApp, entrevista o cliente novo, prepara a proposta, vigia prazos e publicações e envia o que você mandar, por WhatsApp ou e-mail. Você fala com ele por texto ou por voz. E nada sai sem a sua confirmação.</p>
     <p class="portas-tit">Para começar: qual é o seu escritório?</p>
@@ -390,7 +436,7 @@ footer b{color:#fff}
       <h2>Quer ver isso com um caso real do seu escritório?</h2>
       <p>Demonstração de 30 minutos, no número do seu escritório: a entrevista acontecendo, a pré-análise chegando, a proposta sendo gerada e a prévia esperando o seu "sim". Sem compromisso. O investimento é sob medida e vem por escrito depois do diagnóstico.</p>
       <div class="acoes" id="acoes-contato"></div>
-      <p class="leve" style="color:#8495AB;margin:.9rem 0 0">Carajás HubTech &middot; WhatsApp (94) 9 9253-1512 &middot; <a href="mailto:atendimento@carajashubtech.com" style="color:#8FB4FF">atendimento@carajashubtech.com</a> &middot; Marabá/PA, atendimento remoto em todo o Brasil</p>
+      <p class="leve" style="color:#8495AB;margin:.9rem 0 0">Carajás HubTech &middot; WhatsApp (94) 9 9253-1512 &middot; <a href="mailto:atendimento@carajashubtech.com" style="color:#C9A464">atendimento@carajashubtech.com</a> &middot; Marabá/PA, atendimento remoto em todo o Brasil</p>
     </div>
   </section>
 
@@ -398,7 +444,7 @@ footer b{color:#fff}
 
 <footer>
   <div class="wrap">
-    <b>Carajás HubTech</b><br>Tecnologia e automação para escritórios de advocacia &middot; Marabá, Pará<br><a href="mailto:atendimento@carajashubtech.com" style="color:#8FB4FF">atendimento@carajashubtech.com</a> &middot; WhatsApp (94) 9 9253-1512
+    <a class="marca" href="#experimente" aria-label="Carajás HubTech"><img src="emblema.svg" alt="" width="58" height="49"><span><b>CARAJÁS</b><small>HUBTECH</small></span></a>Tecnologia e automação para escritórios de advocacia &middot; Marabá, Pará<br><a href="mailto:atendimento@carajashubtech.com" style="color:#C9A464">atendimento@carajashubtech.com</a> &middot; WhatsApp (94) 9 9253-1512
     <p class="fontes">
       Este material descreve software e serviços de uma empresa de tecnologia. Não é publicidade de serviços de advocacia e não constitui oferta de atividade privativa de advogado.<br>
       Os números foram medidos em operação real, num único escritório, entre setembro e outubro de 2026, e variam conforme o volume e a infraestrutura de cada contratante.<br>
