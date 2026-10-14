@@ -11,7 +11,7 @@ O Jarvis nasceu para devolver esse tempo. Ele atende, organiza, lembra, rascunha
 ## O que acreditamos
 
 **1. O advogado decide; a máquina prepara.**
-O Jarvis nunca age sozinho no que tem consequência. Toda ação que muda algo fora dele — enviar proposta, marcar atendimento, gravar contrato, vincular processo, dar baixa em pagamento — passa por uma prévia conferida pelo sistema e só acontece depois da confirmação do advogado, com código de uso único. O advogado assume qualquer conversa quando quiser, e devolve quando quiser.
+O Jarvis nunca age sozinho no que tem consequência. Toda ação que muda algo fora dele — enviar mensagem, arquivo, e-mail ou proposta, marcar atendimento, gravar contrato, vincular processo, dar baixa em pagamento — passa por uma prévia conferida pelo sistema e só acontece depois da confirmação do advogado, com código de uso único. O advogado assume qualquer conversa quando quiser, e devolve quando quiser.
 
 **2. Ao cliente, cuidado e verdade.**
 A IA acolhe, escuta, pede os documentos certos e explica em linguagem simples. Ela não dá orientação jurídica, não promete resultado e não fala de valores: isso é do advogado. O que sai para o cliente é conferido por regras no código, não apenas pela boa vontade do modelo.
@@ -20,7 +20,7 @@ A IA acolhe, escuta, pede os documentos certos e explica em linguagem simples. E
 O sistema consulta a tabela de honorários da seccional como piso ético de referência e mostra ao advogado. O valor que vai ao cliente é sempre o que o advogado disser.
 
 **4. Sigilo profissional é inegociável.**
-Os dados dos clientes ficam no computador do escritório. O servidor guarda o mínimo necessário para o WhatsApp funcionar. Senhas e chaves nunca entram no código nem no histórico. O acesso a e-mail, banco e consulta processual é somente de leitura. O tratamento segue a LGPD e o Estatuto da Advocacia.
+Os dados dos clientes ficam no computador do escritório. O servidor guarda o mínimo necessário para o WhatsApp funcionar. Senhas e chaves nunca entram no código nem no histórico. Banco e consulta processual são acessados só para leitura; no e-mail, a permissão de envio é separada da de leitura e só é usada depois do "sim" do advogado. O tratamento segue a LGPD e o Estatuto da Advocacia.
 
 **5. Fonte ou silêncio.**
 Quando o Jarvis fala de lei, decisão ou prazo, ele diz de onde tirou. Prazo calculado pela máquina é sempre marcado como provisório, até o advogado confirmar.

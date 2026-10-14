@@ -4,13 +4,15 @@
 
 > A tecnologia prepara, o advogado decide.
 
-📄 **[Ver a apresentação completa](https://neto2023.github.io/jarvis_advocacia/)** — página interativa, com demonstração do atendimento passo a passo e calculadora do tempo gasto hoje em triagem manual.
+[![Jarvis: um assistente que trabalha no seu escritório. Você só diz sim.](card.png)](https://neto2023.github.io/jarvis_advocacia/)
+
+👉 **[Converse com o Jarvis agora](https://neto2023.github.io/jarvis_advocacia/)**: página interativa, com o Jarvis simulado (por texto e por voz), as travas de segurança para testar, a calculadora do tempo gasto hoje em triagem e o plano de implantação montado na hora.
 
 ---
 
 ## O que é
 
-O Jarvis é um assistente que atende no WhatsApp do escritório, conduz a entrevista do caso novo, organiza documentos, prepara a pré-análise e a proposta de honorários, acompanha prazos, agenda e financeiro — e não executa nada com efeito fora dele sem a confirmação do advogado.
+O Jarvis é um assistente que atende no WhatsApp do escritório, conduz a entrevista do caso novo, organiza documentos, prepara a pré-análise e a proposta de honorários, acompanha prazos, agenda e financeiro, e envia mensagens, arquivos e e-mails a clientes quando o advogado pede. O advogado fala com ele pelo WhatsApp ou por voz no computador, e nada com efeito fora do sistema acontece sem a confirmação dele.
 
 Não é um protótipo. Está em operação contínua num escritório de advocacia em Marabá, no Pará, desde setembro de 2026, atendendo clientes reais, com prazo correndo.
 
@@ -23,15 +25,17 @@ Não é um protótipo. Está em operação contínua num escritório de advocaci
 - **Prazos e publicações** — publicações pela OAB e avisos do tribunal viram cartão de prazo e evento na agenda, sempre marcados para conferência humana.
 - **Agenda** — prazos do painel no calendário, agenda do dia pela manhã e reuniões marcadas pelo próprio cliente em horários livres.
 - **Financeiro** — extrato das contas do escritório por Open Finance, classificação ditada por mensagem e baixa automática das parcelas de honorários.
+- **Assistente pessoal do advogado** — pelo WhatsApp ou por voz no computador (F9 fala, F10 cala, F8 confirma): consulta processos, prazos, agenda e financeiro, abre pastas, sites e sessões de análise e manda o que for pedido para o celular do advogado.
+- **Envio a clientes por WhatsApp e e-mail** — mensagem, arquivo da pasta do caso ou e-mail com anexo, com o destinatário escolhido pelo nome no cadastro conferido; a prévia mostra nome, número ou e-mail completo, pasta e arquivos, e o envio só sai com o "sim".
 - **Documentos** — procuração, declaração, contrato e minutas em Word com a identidade visual do escritório, sempre para revisão do advogado.
 
 ## Os princípios, que vêm antes do código
 
-1. **Efeito externo só com prévia e confirmação.** Toda ação que sai do sistema — enviar proposta, marcar compromisso, baixar pagamento — passa por uma prévia montada pelo programa, com código de uso único, e só acontece depois do sim do advogado.
+1. **Efeito externo só com prévia e confirmação.** Toda ação que sai do sistema — enviar mensagem, arquivo, e-mail ou proposta, marcar compromisso, baixar pagamento — passa por uma prévia montada pelo programa, com código de uso único, e só acontece depois do sim do advogado.
 2. **Ao cliente, texto conferido.** A IA interpreta, classifica e resume; o que chega ao cliente é texto aprovado antes. Sem orientação jurídica, sem prazo, sem previsão de resultado, sem valor.
 3. **Honorário é decisão humana.** O sistema não tem valor padrão, não calcula honorários e recusa gerar proposta sem o valor que o advogado ditar.
 4. **Regra antes de modelo.** Contar dias úteis, ler um aviso oficial, casar um pagamento com uma parcela: código testado e previsível. A IA entra onde há linguagem humana a entender.
-5. **Sigilo é desenho, não configuração.** Os dados dos clientes ficam no computador do escritório. O servidor guarda apenas o mínimo para o WhatsApp funcionar. Leitura onde basta ler.
+5. **Sigilo é desenho, não configuração.** Os dados dos clientes ficam no computador do escritório. O servidor guarda apenas o mínimo para o WhatsApp funcionar. Leitura onde basta ler; envio com permissão própria e só com o "sim".
 
 ## Onde ficam os dados
 
@@ -42,11 +46,13 @@ Pastas dos casos, documentos e transcrições permanecem na máquina do escritó
 | Frente | Situação |
 |---|---|
 | Atendimento no WhatsApp | em operação |
+| Assistente pessoal (WhatsApp e voz) | em operação |
+| Envio a clientes por WhatsApp e e-mail | em operação |
 | Painel de gestão do escritório | em operação |
 | Prazos e publicações | em operação |
 | Proposta e documentos | em operação |
 | Financeiro com Open Finance | em operação |
-| CRM integrado à gestão | em implantação |
+| Assinatura eletrônica e CRM | em implantação |
 | Presença nas redes (Instagram) | sob encomenda |
 | Landing page e captação | sob encomenda |
 

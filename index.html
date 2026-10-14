@@ -4,184 +4,248 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<title>Automação para escritórios de advocacia | Carajás HubTech</title>
-<meta name="description" content="Atendimento no WhatsApp, painel de gestão, CRM, presença nas redes e captação por landing page para escritórios de advocacia. Sistema em operação real desde setembro de 2026.">
+<title>Jarvis: o assistente do seu escritório de advocacia | Carajás HubTech</title>
+<meta name="description" content="Converse com o Jarvis aqui mesmo: ele atende o WhatsApp, prepara a proposta, vigia prazos e envia por WhatsApp e e-mail, sempre com o seu sim. Por texto ou por voz. Em operação real desde setembro de 2026.">
+<link rel="canonical" href="https://neto2023.github.io/jarvis_advocacia/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Carajás HubTech">
+<meta property="og:title" content="Jarvis: um assistente que trabalha no seu escritório. Você só diz sim.">
+<meta property="og:description" content="Converse com ele agora: atende o WhatsApp, prepara a proposta, vigia prazos e envia por WhatsApp e e-mail, sempre com a sua confirmação.">
+<meta property="og:url" content="https://neto2023.github.io/jarvis_advocacia/">
+<meta property="og:image" content="https://neto2023.github.io/jarvis_advocacia/card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Um assistente que trabalha no seu escritório. Você só diz sim. Prévia de envio confirmada com sim.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://neto2023.github.io/jarvis_advocacia/card.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --grafite:#19212C;
-  --grafite-2:#232E3D;
-  --azul:#1E51C1;
-  --azul-claro:#3D77E8;
-  --tint:#EEF3FD;
-  --tint-2:#DDE7FA;
-  --linha:#D9E0EA;
-  --slate:#5B6879;
-  --papel:#FFFFFF;
-  --ok:#1C7A4A;
-  --ok-soft:#E6F4EC;
-  --warn:#9A6212;
-  --warn-soft:#FBF1DE;
-  --wrap:48rem;
+  --grafite:#19212C;--grafite-2:#232E3D;--azul:#1E51C1;--azul-claro:#3D77E8;--azul-esc:#163E96;
+  --tint:#EEF3FD;--tint-2:#DDE7FA;--linha:#D9E0EA;--slate:#5B6879;--papel:#FFFFFF;--fundo:#F7F9FC;
+  --ok:#1C7A4A;--ok-soft:#E6F4EC;--warn:#9A6212;--warn-soft:#FBF1DE;--erro:#A3261E;--erro-soft:#FBE9E7;
+  --wrap:56rem;
   --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
   --display:Archivo,"Segoe UI",system-ui,sans-serif;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 body{margin:0;background:var(--papel);color:var(--grafite);font-family:var(--sans);font-size:17px;line-height:1.6}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 1.25rem}
-img{max-width:100%}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 1rem}
+a{color:var(--azul);text-underline-offset:2px}
+button{font-family:inherit}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid var(--azul-claro);outline-offset:2px}
 
-/* ---------- cabeçalho ---------- */
-header{background:var(--grafite);color:#fff;padding:3rem 0 2.5rem;position:relative;overflow:hidden}
-header::after{content:"";position:absolute;right:-12%;top:-30%;width:60%;height:160%;background:radial-gradient(circle at center,rgba(30,81,193,.38),transparent 62%)}
+/* ---------- topo ---------- */
+header{background:var(--grafite);color:#fff;padding:2.6rem 0 2.4rem;position:relative;overflow:hidden}
+header::after{content:"";position:absolute;right:-15%;top:-40%;width:70%;height:180%;background:radial-gradient(circle at center,rgba(30,81,193,.42),transparent 62%);pointer-events:none}
 header .wrap{position:relative;z-index:1}
-.eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#8FB4FF;margin:0 0 1.1rem;line-height:1.5}
-h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,7.2vw,3.1rem);line-height:1.03;letter-spacing:-.025em;margin:0 0 1rem}
+.eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#8FB4FF;margin:0 0 1rem}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,7vw,3.2rem);line-height:1.03;letter-spacing:-.025em;margin:0 0 1rem;max-width:44rem}
 h1 em{font-style:normal;color:#79A6FF}
-.lede{font-size:1.06rem;color:#C7D3E4;margin:0;max-width:36rem}
-.selo{margin-top:1.7rem;display:flex;flex-wrap:wrap;gap:.4rem .9rem;font-family:var(--mono);font-size:.7rem;color:#8495AB;letter-spacing:.05em}
-.selo span::before{content:"· ";color:#4A5B72}
-.selo span:first-child::before{content:""}
+.lede{font-size:1.06rem;color:#C7D3E4;margin:0 0 1.6rem;max-width:40rem}
+.portas-tit{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#8FB4FF;margin:0 0 .7rem;font-weight:500}
+.portas{display:grid;grid-template-columns:repeat(auto-fit,minmax(12.5rem,1fr));gap:.6rem}
+.porta{background:rgba(255,255,255,.06);border:1px solid #3A4A62;color:#fff;border-radius:12px;padding:.85rem .95rem;text-align:left;cursor:pointer;transition:background .15s,border-color .15s,transform .15s}
+.porta:hover{background:rgba(255,255,255,.1);transform:translateY(-1px)}
+.porta[aria-pressed="true"]{background:var(--azul);border-color:var(--azul-claro)}
+.porta b{display:block;font-family:var(--display);font-size:1rem}
+.porta small{display:block;color:#C7D3E4;font-size:.84rem;line-height:1.4;margin-top:.2rem}
+.porta[aria-pressed="true"] small{color:#E4ECFB}
+.topo-acoes{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.2rem;align-items:center}
+.selo{display:flex;flex-wrap:wrap;gap:.3rem .9rem;font-family:var(--mono);font-size:.68rem;color:#8495AB;letter-spacing:.05em;margin-top:1.4rem}
+.selo span+span::before{content:"· ";color:#4A5B72}
 
-/* ---------- navegação fixa ---------- */
+/* ---------- botões ---------- */
+.bt{display:inline-flex;align-items:center;gap:.4rem;font-size:.95rem;font-weight:600;padding:.6rem 1.05rem;border-radius:9px;border:1px solid var(--azul);background:var(--azul);color:#fff;cursor:pointer;text-decoration:none;line-height:1.2}
+.bt:hover{background:var(--azul-claro);border-color:var(--azul-claro);color:#fff}
+.bt.sec{background:#fff;color:var(--azul)}
+.bt.sec:hover{background:var(--tint)}
+.bt.claro{background:transparent;color:#fff;border-color:#5C7AB8}
+.bt.claro:hover{background:rgba(255,255,255,.08)}
+.bt:disabled{opacity:.45;cursor:default}
+kbd{font-family:var(--mono);font-size:.72rem;background:#fff;color:var(--grafite);border:1px solid var(--linha);border-bottom-width:2px;border-radius:4px;padding:.05rem .35rem}
+
+/* ---------- navegação ---------- */
 .navbar{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--linha)}
-.navbar .wrap{display:flex;align-items:center;gap:.75rem;padding-top:.5rem;padding-bottom:.5rem}
-.navlinks{display:flex;gap:.1rem;overflow-x:auto;scrollbar-width:none;flex:1}
+.navlinks{display:flex;gap:.1rem;overflow-x:auto;scrollbar-width:none;padding:.45rem 0}
 .navlinks::-webkit-scrollbar{display:none}
 .navlinks a{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;color:var(--slate);text-decoration:none;padding:.4rem .55rem;border-radius:6px;white-space:nowrap}
 .navlinks a:hover{background:var(--tint);color:var(--azul)}
 .navlinks a[aria-current="true"]{background:var(--grafite);color:#fff}
 .barra{height:3px;background:var(--tint-2)}
-.barra span{display:block;height:100%;width:0;background:var(--azul);transition:width .2s linear}
+.barra span{display:block;height:100%;width:0;background:var(--azul);transition:width .15s linear}
 
-/* ---------- estrutura ---------- */
-main{padding:2.75rem 0 1rem}
-section{margin:0 0 3.5rem;scroll-margin-top:5rem}
+/* ---------- seções ---------- */
+main{padding:2.5rem 0 1rem}
+section{margin:0 0 3.6rem;scroll-margin-top:4.5rem}
 .num{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--azul);margin:0 0 .4rem}
-h2{font-family:var(--display);font-weight:700;font-size:clamp(1.4rem,4.6vw,1.9rem);line-height:1.14;letter-spacing:-.018em;margin:0 0 .8rem}
-h3{font-family:var(--display);font-weight:700;font-size:1.04rem;margin:1.7rem 0 .45rem;letter-spacing:-.005em}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.4rem,4.4vw,1.95rem);line-height:1.14;letter-spacing:-.018em;margin:0 0 .8rem}
+h3{font-family:var(--display);font-weight:700;font-size:1.04rem;margin:1.4rem 0 .45rem}
 p{margin:0 0 .95rem}
-.destaque{font-size:1.1rem;color:var(--grafite);border-left:4px solid var(--azul);padding-left:1rem;margin:1.4rem 0;font-weight:500}
-a{color:var(--azul);text-decoration:underline;text-underline-offset:2px}
-a:hover{color:var(--grafite)}
-strong,b{font-weight:600}
-.so-leitura{color:var(--slate);font-size:.95rem}
+.leve{color:var(--slate);font-size:.95rem}
+.para-voce{background:var(--tint);border:1px solid var(--tint-2);border-radius:12px;padding:1rem 1.1rem;margin:0 0 1.2rem}
+.para-voce b{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--azul);display:block;margin-bottom:.3rem}
+.para-voce ul{margin:.2rem 0 0;padding-left:1.1rem}
+.para-voce li{margin:.2rem 0}
+
+/* ---------- simulador ---------- */
+.sim{display:grid;grid-template-columns:minmax(0,1fr) 15rem;gap:1rem;align-items:start}
+@media (max-width:46rem){.sim{grid-template-columns:1fr}}
+.tel{border:1px solid var(--linha);border-radius:16px;overflow:hidden;background:var(--fundo);display:flex;flex-direction:column;height:32rem}
+.tel-topo{background:var(--grafite);color:#fff;padding:.7rem 1rem;display:flex;align-items:center;gap:.7rem}
+.tel-topo .av{width:2rem;height:2rem;border-radius:50%;background:var(--azul);display:grid;place-items:center;font-family:var(--display);font-weight:800}
+.tel-topo b{font-size:.95rem;display:block;line-height:1.2}
+.tel-topo small{font-size:.72rem;color:#8FB4FF;font-family:var(--mono)}
+.modos{margin-left:auto;display:flex;background:#2C3848;border-radius:8px;padding:2px}
+.modos button{background:none;border:0;color:#C7D3E4;font-size:.75rem;font-family:var(--mono);padding:.3rem .55rem;border-radius:6px;cursor:pointer}
+.modos button[aria-pressed="true"]{background:var(--azul);color:#fff}
+.conversa{flex:1;overflow-y:auto;padding:1rem;scroll-behavior:smooth}
+.msg{margin:0 0 .65rem;padding:.6rem .8rem;border-radius:12px;max-width:86%;font-size:.93rem;line-height:1.48;animation:surge .22s ease;white-space:pre-wrap;word-wrap:break-word}
+.msg .de{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.2rem;opacity:.7}
+.msg.eu{background:var(--grafite);color:#fff;margin-left:auto;border-bottom-right-radius:4px}
+.msg.jarvis{background:#fff;border:1px solid var(--linha);border-bottom-left-radius:4px}
+.msg.previa{background:var(--warn-soft);border:1px solid #EBD3A6;max-width:96%;font-family:var(--mono);font-size:.8rem}
+.msg.ok{background:var(--ok-soft);border:1px solid #BFE3CF}
+.msg.trava{background:var(--erro-soft);border:1px solid #F0C3BE}
+.msg.bast{background:transparent;border:1px dashed var(--linha);color:var(--slate);font-size:.82rem;max-width:100%;text-align:center}
+.digitando{display:inline-flex;gap:.25rem;padding:.75rem .9rem;background:#fff;border:1px solid var(--linha);border-radius:12px;margin-bottom:.65rem}
+.digitando i{width:.42rem;height:.42rem;border-radius:50%;background:var(--slate);animation:pula 1s infinite}
+.digitando i:nth-child(2){animation-delay:.15s}.digitando i:nth-child(3){animation-delay:.3s}
+@keyframes pula{0%,60%,100%{transform:none;opacity:.4}30%{transform:translateY(-4px);opacity:1}}
+@keyframes surge{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.respostas{display:flex;flex-wrap:wrap;gap:.4rem;padding:.6rem .8rem;border-top:1px solid var(--linha);background:#fff;min-height:3.2rem}
+.respostas button{border:1px solid var(--azul);background:#fff;color:var(--azul);border-radius:999px;padding:.35rem .75rem;font-size:.84rem;cursor:pointer}
+.respostas button:hover{background:var(--tint)}
+.respostas button.perigo{border-color:var(--slate);color:var(--slate)}
+.voz-barra{display:none;align-items:center;gap:.6rem;padding:.6rem .8rem;border-top:1px solid var(--linha);background:var(--grafite);color:#fff;font-size:.85rem}
+.tel.modo-voz .voz-barra{display:flex}
+.luz{width:.85rem;height:.85rem;border-radius:50%;background:#808080;flex:none;transition:background .2s}
+.luz.ouvindo{background:#DC2626;box-shadow:0 0 0 4px rgba(220,38,38,.25);animation:pulsa 1s infinite}
+.luz.pensando{background:#D97706}.luz.falando{background:#2563EB}
+@keyframes pulsa{50%{box-shadow:0 0 0 8px rgba(220,38,38,.08)}}
+.voz-barra .teclas{margin-left:auto;display:flex;gap:.3rem}
+.voz-barra .teclas button{background:#2C3848;color:#fff;border:1px solid #3A4A62;border-radius:6px;font-family:var(--mono);font-size:.75rem;padding:.3rem .5rem;cursor:pointer}
+.voz-barra .teclas button:hover{background:#3A4A62}
+.lado{border:1px solid var(--linha);border-radius:14px;padding:1rem;font-size:.9rem}
+.lado h3{margin-top:0;font-size:.95rem}
+.lado ol{padding-left:1.1rem;margin:.3rem 0 .8rem}
+.lado li{margin:.3rem 0}
+.lado .falar{display:flex;align-items:center;gap:.5rem;margin-top:.6rem;font-size:.85rem}
+.conquistas{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.6rem}
+.conq{font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .45rem;border-radius:4px;background:#EEF0F3;color:#8A96A6}
+.conq.feito{background:var(--ok-soft);color:var(--ok)}
+
+/* ---------- travas ---------- */
+.travas{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.8rem}
+.trava-card{border:1px solid var(--linha);border-radius:12px;padding:1rem;background:#fff;display:flex;flex-direction:column;gap:.5rem}
+.trava-card b{font-family:var(--display);font-size:1rem}
+.trava-card p{font-size:.92rem;margin:0;color:var(--slate)}
+.trava-card .bt{align-self:flex-start;font-size:.85rem;padding:.45rem .8rem}
+.trava-card .saida{font-size:.88rem;border-radius:8px;padding:.6rem .7rem;display:none}
+.trava-card .saida.mostra{display:block;animation:surge .2s ease}
+.saida.bloq{background:var(--erro-soft);color:var(--erro)}
+.saida.libera{background:var(--ok-soft);color:var(--ok)}
 
 /* ---------- calculadora ---------- */
-.calc{background:var(--tint);border:1px solid var(--tint-2);border-radius:12px;padding:1.3rem 1.25rem}
-.calc-linha{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;margin-bottom:1rem}
-.calc-linha:last-of-type{margin-bottom:1.3rem}
-.calc label{flex:1 1 15rem;font-size:.97rem}
-.calc input{width:7rem;font-family:var(--mono);font-size:1rem;padding:.45rem .6rem;border:1px solid var(--linha);border-radius:7px;background:#fff;text-align:right}
-.calc input:focus-visible{outline:2px solid var(--azul);outline-offset:1px}
-.calc-saida{background:var(--grafite);color:#fff;border-radius:10px;padding:1.1rem 1.2rem}
-.calc-saida p{margin:0 0 .4rem;font-size:.95rem;color:#C7D3E4}
-.calc-saida p:last-child{margin:0}
-.calc-saida b{font-family:var(--mono);font-size:1.35rem;font-weight:600;color:#79A6FF;display:block;line-height:1.3}
+.calc{background:var(--tint);border:1px solid var(--tint-2);border-radius:14px;padding:1.2rem}
+.calc-linha{display:grid;grid-template-columns:1fr auto;gap:.3rem 1rem;align-items:center;margin-bottom:1rem}
+.calc label{font-size:.95rem}
+.calc output{font-family:var(--mono);font-weight:600;color:var(--azul)}
+.calc input[type=range]{grid-column:1/-1;width:100%;accent-color:var(--azul)}
+.calc-saida{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:.6rem;margin-top:.4rem}
+.calc-saida div{background:var(--grafite);color:#fff;border-radius:10px;padding:.9rem 1rem}
+.calc-saida small{display:block;color:#C7D3E4;font-size:.82rem}
+.calc-saida b{font-family:var(--mono);font-size:1.4rem;color:#79A6FF;display:block;line-height:1.3}
 
-/* ---------- demonstração de conversa ---------- */
-.demo{border:1px solid var(--linha);border-radius:12px;overflow:hidden}
-.demo-topo{background:var(--grafite);color:#fff;padding:.7rem 1rem;display:flex;align-items:center;gap:.6rem;font-size:.9rem}
-.demo-topo span{font-family:var(--mono);font-size:.7rem;color:#8FB4FF;letter-spacing:.08em;text-transform:uppercase}
-.demo-corpo{padding:1rem;background:#F7F9FC;min-height:12rem}
-.msg{margin:0 0 .7rem;padding:.65rem .85rem;border-radius:10px;max-width:84%;font-size:.95rem;line-height:1.5;animation:surge .25s ease}
-.msg b{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.25rem;opacity:.75;font-weight:500}
-.msg.cliente{background:#fff;border:1px solid var(--linha)}
-.msg.jarvis{background:var(--tint);border:1px solid var(--tint-2);margin-left:auto}
-.msg.advogado{background:var(--grafite);color:#fff;margin-left:auto}
-.msg.advogado b{color:#8FB4FF;opacity:1}
-.msg.sistema{background:var(--ok-soft);border:1px solid #BFE3CF;font-size:.9rem;max-width:100%}
-.msg.sistema b{color:var(--ok);opacity:1}
-@keyframes surge{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.demo-pe{display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border-top:1px solid var(--linha);background:#fff;flex-wrap:wrap}
-.bt{font-family:var(--sans);font-size:.95rem;font-weight:600;padding:.55rem 1rem;border-radius:8px;border:1px solid var(--azul);background:var(--azul);color:#fff;cursor:pointer}
-.bt:hover{background:var(--azul-claro);border-color:var(--azul-claro)}
-.bt.sec{background:#fff;color:var(--azul)}
-.bt.sec:hover{background:var(--tint);color:var(--azul)}
-.bt:disabled{opacity:.45;cursor:default}
-.passo-conta{font-family:var(--mono);font-size:.75rem;color:var(--slate);margin-left:auto}
+/* ---------- monte o seu ---------- */
+.frentes{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.7rem}
+.frente{position:relative;border:1px solid var(--linha);border-radius:12px;padding:.9rem 1rem .9rem 2.9rem;background:#fff;cursor:pointer;display:block;transition:border-color .15s,background .15s}
+.frente input{position:absolute;left:1rem;top:1.05rem;width:1.15rem;height:1.15rem;accent-color:var(--azul)}
+.frente:has(input:checked){border-color:var(--azul);background:var(--tint)}
+.frente b{display:block;font-family:var(--display);font-size:.98rem}
+.frente small{display:block;color:var(--slate);font-size:.86rem;line-height:1.45;margin-top:.2rem}
+.frente .chip{position:absolute;right:.7rem;top:.75rem}
+.frente .rec{display:none;font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--azul);margin-top:.35rem}
+.frente.recomendada .rec{display:block}
+.chip{display:inline-block;font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;padding:.15rem .4rem;border-radius:4px;font-weight:500}
+.chip.ar{background:var(--ok-soft);color:var(--ok)}.chip.obra{background:var(--warn-soft);color:var(--warn)}.chip.sob{background:var(--tint-2);color:var(--azul-esc)}
+.plano{margin-top:1rem;background:var(--grafite);color:#fff;border-radius:14px;padding:1.2rem}
+.plano h3{color:#fff;margin-top:0}
+.plano ol{margin:.4rem 0 1rem;padding-left:1.2rem;color:#E4ECFB}
+.plano li{margin:.3rem 0}
+.plano li small{color:#8FB4FF;font-family:var(--mono);font-size:.72rem}
+.plano pre{white-space:pre-wrap;background:#0F151D;border:1px solid #2C3848;border-radius:10px;padding:.8rem;font-family:var(--mono);font-size:.78rem;color:#C7D3E4;margin:.4rem 0 .8rem}
+.plano .vazio{color:#8495AB}
 
-/* ---------- cartões de produto ---------- */
-.produtos{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:.9rem;margin-top:1.3rem}
-.cartao{border:1px solid var(--linha);border-radius:12px;padding:1.1rem 1.15rem;background:#fff;display:flex;flex-direction:column}
-.cartao h3{margin:.55rem 0 .45rem;font-size:1.06rem}
-.cartao p{font-size:.94rem;margin:0 0 .7rem;color:var(--grafite)}
-.cartao .ganho{margin-top:auto;font-size:.88rem;color:var(--slate);border-top:1px solid var(--linha);padding-top:.65rem}
-.cartao .ganho b{color:var(--azul)}
-.chip{display:inline-block;font-family:var(--mono);font-size:.64rem;letter-spacing:.09em;text-transform:uppercase;padding:.2rem .45rem;border-radius:4px;font-weight:500}
-.chip.ar{background:var(--ok-soft);color:var(--ok)}
-.chip.obra{background:var(--warn-soft);color:var(--warn)}
-.chip.sob{background:var(--tint);color:var(--azul)}
+/* ---------- prova ---------- */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:.7rem;margin:1.2rem 0}
+.stat{border:1px solid var(--linha);border-radius:12px;padding:.95rem 1rem}
+.stat b{display:block;font-family:var(--mono);font-size:1.55rem;font-weight:600;color:var(--azul);line-height:1.2}
+.stat small{display:block;color:var(--slate);font-size:.86rem;margin-top:.25rem}
+.erros{display:grid;gap:.5rem}
+.erro{border:1px solid var(--linha);border-radius:12px;background:#fff}
+.erro summary{cursor:pointer;list-style:none;padding:.85rem 1rem;font-weight:600;display:flex;gap:.6rem}
+.erro summary::-webkit-details-marker{display:none}
+.erro summary::before{content:"+";font-family:var(--mono);color:var(--azul)}
+.erro[open] summary::before{content:"\2212"}
+.erro p{margin:0;padding:0 1rem .9rem 2.2rem;font-size:.93rem;color:var(--slate)}
 
 /* ---------- linha do tempo ---------- */
-.linha-tempo{list-style:none;margin:1.3rem 0 0;padding:0 0 0 1.6rem;border-left:2px solid var(--tint-2)}
-.linha-tempo li{position:relative;padding:0 0 1.4rem}
-.linha-tempo li::before{content:"";position:absolute;left:-2.05rem;top:.4rem;width:.7rem;height:.7rem;border-radius:50%;background:var(--azul);border:3px solid #fff;box-shadow:0 0 0 2px var(--tint-2)}
-.linha-tempo b{display:block;font-family:var(--display);font-size:1rem}
-.linha-tempo small{display:block;color:var(--slate);font-size:.92rem;margin-top:.15rem}
-.linha-tempo .quem{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--azul)}
-
-/* ---------- listas e caixas ---------- */
-.lista{list-style:none;margin:1.1rem 0 0;padding:0}
-.lista li{border-top:1px solid var(--linha);padding:.85rem 0 .9rem}
-.lista li:last-child{border-bottom:1px solid var(--linha)}
-.lista b{font-weight:600}
-.lista small{display:block;color:var(--slate);font-size:.9rem;margin-top:.15rem}
-.nota{background:var(--tint);padding:1rem 1.1rem;border-radius:10px;margin:1.4rem 0;font-size:.96rem}
-.nota p{margin:0}
-.nota p + p{margin-top:.6rem}
-.alerta{border-left:5px solid var(--azul);background:var(--tint);padding:1rem 1.1rem;border-radius:0 10px 10px 0;margin:1.4rem 0}
-.alerta p{margin:0;font-size:.98rem}
-.alerta p + p{margin-top:.6rem}
-
-/* ---------- números ---------- */
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:.8rem;margin:1.3rem 0}
-.stat{border:1px solid var(--linha);border-radius:10px;padding:.95rem 1rem}
-.stat b{display:block;font-family:var(--mono);font-size:1.5rem;font-weight:600;color:var(--azul);line-height:1.2}
-.stat small{display:block;color:var(--slate);font-size:.86rem;margin-top:.25rem}
+.trilha{list-style:none;margin:1rem 0 0;padding:0;counter-reset:t}
+.trilha li{position:relative;padding:0 0 1.2rem 2.6rem;counter-increment:t}
+.trilha li::before{content:counter(t);position:absolute;left:0;top:0;width:1.8rem;height:1.8rem;border-radius:50%;background:var(--tint);color:var(--azul);font-family:var(--mono);font-weight:600;display:grid;place-items:center;font-size:.85rem;transition:background .2s,color .2s}
+.trilha li.visto::before{background:var(--azul);color:#fff}
+.trilha li::after{content:"";position:absolute;left:.88rem;top:1.9rem;bottom:.1rem;width:2px;background:var(--tint-2)}
+.trilha li:last-child::after{display:none}
+.trilha .quem{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--azul)}
+.trilha b{display:block;font-family:var(--display)}
+.trilha small{display:block;color:var(--slate);font-size:.92rem}
 
 /* ---------- perguntas ---------- */
-details{border-top:1px solid var(--linha);padding:.9rem 0}
-details:last-of-type{border-bottom:1px solid var(--linha)}
-summary{cursor:pointer;font-weight:600;list-style:none;display:flex;gap:.6rem;align-items:flex-start}
-summary::-webkit-details-marker{display:none}
-summary::before{content:"+";font-family:var(--mono);color:var(--azul);font-weight:600;flex:none;width:1rem}
-details[open] summary::before{content:"\2212"}
-details p{margin:.7rem 0 0 1.6rem;font-size:.96rem;color:var(--grafite)}
+.busca{width:100%;font-size:1rem;padding:.65rem .8rem;border:1px solid var(--linha);border-radius:10px;margin-bottom:.6rem}
+details.pg{border-top:1px solid var(--linha);padding:.85rem 0}
+details.pg:last-of-type{border-bottom:1px solid var(--linha)}
+details.pg summary{cursor:pointer;font-weight:600;list-style:none;display:flex;gap:.6rem}
+details.pg summary::-webkit-details-marker{display:none}
+details.pg summary::before{content:"+";font-family:var(--mono);color:var(--azul);flex:none;width:1rem}
+details.pg[open] summary::before{content:"\2212"}
+details.pg p{margin:.6rem 0 0 1.6rem;font-size:.95rem}
+.nenhuma{display:none;color:var(--slate);font-size:.92rem}
 
-/* ---------- chamada final ---------- */
-.cta{background:var(--grafite);color:#fff;border-radius:14px;padding:1.8rem 1.5rem;margin:2rem 0 0}
-.cta h2{color:#fff;margin-bottom:.6rem}
+/* ---------- chamada ---------- */
+.cta{background:var(--grafite);color:#fff;border-radius:16px;padding:1.6rem 1.4rem}
+.cta h2{color:#fff}
 .cta p{color:#C7D3E4}
-.cta .contato{font-family:var(--mono);font-size:1rem;color:#79A6FF;margin:1.2rem 0 0;line-height:1.9}
-.falta{background:#3A2F12;color:#FFD98A;font-family:var(--mono);font-size:.8rem;padding:.15rem .4rem;border-radius:4px}
+.cta .acoes{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
 
-/* ---------- rodapé ---------- */
-footer{background:var(--grafite);color:#A8B6C8;padding:2.4rem 0 2.8rem;margin-top:3.5rem;font-size:.9rem}
-footer h3{color:#fff;margin-top:0}
-footer a{color:#8FB4FF}
-.assina{color:#fff;font-weight:600;margin-bottom:.15rem}
-.fontes{font-size:.78rem;line-height:1.75;color:#7D8DA3;margin-top:1.6rem}
+footer{background:var(--grafite);color:#A8B6C8;padding:2.2rem 0 2.6rem;margin-top:3rem;font-size:.88rem}
+footer b{color:#fff}
+.fontes{font-size:.78rem;line-height:1.75;color:#7D8DA3;margin-top:1.2rem}
 
-@media (max-width:40rem){
-  .msg{max-width:94%}
-  .calc input{width:100%}
-  .calc label{flex:1 1 100%}
-}
-@media print{
-  .navbar,.demo-pe{display:none}
-  body{font-size:11pt}
-  header,footer,.cta,.calc-saida,.msg.advogado{background:#fff!important;color:#000!important}
-  header::after{display:none}
-  h1 em,.lede,.selo,.cta p,.calc-saida b{color:#333!important}
-  .msg{max-width:100%;page-break-inside:avoid}
-  a{color:#000}
-}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+/* ---------- tour e aviso ---------- */
+.tour-veu{position:fixed;inset:0;z-index:60;pointer-events:none;display:none}
+.tour-veu.ativo{display:block}
+.tour-foco{position:absolute;border-radius:14px;box-shadow:0 0 0 9999px rgba(15,21,29,.62);transition:all .3s ease}
+.tour-cartao{position:fixed;z-index:61;left:50%;bottom:1.2rem;transform:translateX(-50%);width:min(30rem,calc(100% - 2rem));background:#fff;border-radius:14px;padding:1rem 1.1rem;box-shadow:0 18px 50px rgba(0,0,0,.3);display:none}
+.tour-cartao.ativo{display:block;animation:surge .25s ease}
+.tour-cartao h3{margin:0 0 .3rem}
+.tour-cartao p{font-size:.93rem;margin:0 0 .8rem}
+.tour-pe{display:flex;align-items:center;gap:.5rem}
+.tour-pe span{font-family:var(--mono);font-size:.72rem;color:var(--slate);margin-right:auto}
+.toast{position:fixed;z-index:70;left:50%;top:1rem;transform:translate(-50%,-150%);background:var(--grafite);color:#fff;padding:.6rem 1rem;border-radius:10px;font-size:.9rem;transition:transform .25s ease;max-width:calc(100% - 2rem)}
+.toast.mostra{transform:translate(-50%,0)}
+.atalhos{position:fixed;z-index:65;inset:0;background:rgba(15,21,29,.55);display:none;place-items:center;padding:1rem}
+.atalhos.mostra{display:grid}
+.atalhos div{background:#fff;border-radius:14px;padding:1.2rem 1.3rem;max-width:24rem;width:100%}
+.atalhos dl{display:grid;grid-template-columns:auto 1fr;gap:.45rem .8rem;margin:.6rem 0 0;font-size:.92rem}
+.atalhos dt{text-align:right}
 </style>
 </head>
 <body>
@@ -189,378 +253,562 @@ footer a{color:#8FB4FF}
 <header>
   <div class="wrap">
     <p class="eyebrow">Carajás HubTech &middot; tecnologia para escritórios de advocacia</p>
-    <h1>Seu escritório atendendo<br><em>enquanto você advoga</em></h1>
-    <p class="lede">Atendimento no WhatsApp, painel de gestão, CRM, presença nas redes e captação por landing page. Em operação real num escritório de Marabá desde setembro de 2026 — não é maquete, é sistema rodando todos os dias.</p>
-    <p class="selo">
-      <span>Apresentação comercial</span>
-      <span>v1</span>
-      <span>Marabá/PA</span>
-      <span>outubro de 2026</span>
-    </p>
+    <h1>Um assistente que trabalha no seu escritório. <em>Você só diz sim.</em></h1>
+    <p class="lede">O Jarvis atende o WhatsApp, entrevista o cliente novo, prepara a proposta, vigia prazos e publicações e envia o que você mandar, por WhatsApp ou e-mail. Você fala com ele por texto ou por voz. E nada sai sem a sua confirmação.</p>
+    <p class="portas-tit">Para começar: qual é o seu escritório?</p>
+    <div class="portas" id="portas" role="group" aria-label="Perfil do escritório"></div>
+    <div class="topo-acoes">
+      <a class="bt" href="#experimente">Conversar com o Jarvis agora</a>
+      <button class="bt claro" id="bt-tour" type="button">Tour de 1 minuto</button>
+      <button class="bt claro" id="bt-atalhos" type="button" aria-label="Atalhos de teclado"><kbd>?</kbd> atalhos</button>
+    </div>
+    <p class="selo"><span>Em operação real desde set/2026</span><span>Apresentação v2</span><span>Marabá/PA</span><span>outubro de 2026</span></p>
   </div>
 </header>
 
-<nav class="navbar" aria-label="Seções desta apresentação">
-  <div class="wrap">
-    <div class="navlinks">
-      <a href="#hoje">O dia de hoje</a>
-      <a href="#atendimento">O atendimento</a>
-      <a href="#produtos">Produtos</a>
-      <a href="#caminho">Do oi ao contrato</a>
-      <a href="#sigilo">Sigilo</a>
-      <a href="#prova">Prova</a>
-      <a href="#implantacao">Implantação</a>
-      <a href="#perguntas">Perguntas</a>
-    </div>
-  </div>
+<nav class="navbar" aria-label="Seções">
+  <div class="wrap"><div class="navlinks">
+    <a href="#experimente">Experimente</a>
+    <a href="#travas">Travas</a>
+    <a href="#tempo">Seu tempo</a>
+    <a href="#monte">Monte o seu</a>
+    <a href="#caminho">Do oi ao contrato</a>
+    <a href="#prova">Prova</a>
+    <a href="#perguntas">Perguntas</a>
+  </div></div>
   <div class="barra"><span id="preenchimento"></span></div>
 </nav>
 
-<main class="wrap">
+<main><div class="wrap">
 
-  <section id="hoje">
-    <p class="num">O ponto de partida</p>
-    <h2>Enquanto você está em audiência, três pessoas escreveram no WhatsApp do escritório</h2>
-    <p>Nenhuma delas disse o nome. Duas mandaram áudio. Uma mandou foto de um contrato de ponta-cabeça. Quando você sai da audiência, precisa ouvir tudo, entender quem é quem, descobrir o que cada um quer e só então decidir se vale pegar o caso.</p>
-    <p>Esse trabalho não é advocacia, mas consome hora de advogado. E é o primeiro trecho onde o cliente desiste: no silêncio entre a mensagem dele e a sua resposta.</p>
+  <section id="experimente">
+    <p class="num">Experimente</p>
+    <h2>Converse com o Jarvis como você conversaria no escritório</h2>
+    <div class="para-voce" id="para-voce" hidden></div>
+    <div class="sim">
+      <div class="tel" id="tel">
+        <div class="tel-topo">
+          <div class="av" aria-hidden="true">J</div>
+          <div><b>Jarvis</b><small id="tel-estado">simulação &middot; dados fictícios</small></div>
+          <div class="modos" role="group" aria-label="Como falar com o Jarvis">
+            <button type="button" id="modo-texto" aria-pressed="true">WhatsApp</button>
+            <button type="button" id="modo-voz" aria-pressed="false">Voz</button>
+          </div>
+        </div>
+        <div class="conversa" id="conversa" aria-live="polite"></div>
+        <div class="voz-barra" id="voz-barra">
+          <span class="luz" id="luz" aria-hidden="true"></span>
+          <span id="voz-texto">Aperte <kbd>F9</kbd> para falar</span>
+          <div class="teclas">
+            <button type="button" id="k-f9">F9 fala</button>
+            <button type="button" id="k-f10">F10 cala</button>
+            <button type="button" id="k-f8">F8 confirma</button>
+          </div>
+        </div>
+        <div class="respostas" id="respostas" aria-label="Escolha o que dizer"></div>
+      </div>
+      <aside class="lado">
+        <h3>O que testar</h3>
+        <ol>
+          <li>Peça a proposta de um caso.</li>
+          <li>Mande um arquivo a um cliente e veja a prévia.</li>
+          <li>Tente confirmar com "ok" ou por áudio.</li>
+          <li>Peça para alguém com nome repetido.</li>
+          <li>Troque para <b>Voz</b> e use <kbd>F9</kbd> e <kbd>F8</kbd>.</li>
+        </ol>
+        <label class="falar"><input type="checkbox" id="falar-alto"> Ouvir as respostas em voz alta</label>
+        <div class="conquistas" id="conquistas" aria-label="O que você já testou"></div>
+        <p class="leve" style="margin:.8rem 0 0">Os nomes, números e valores são inventados. As regras são as do sistema em produção.</p>
+      </aside>
+    </div>
+  </section>
 
+  <section id="travas">
+    <p class="num">A pergunta que todo advogado faz primeiro</p>
+    <h2>Tente fazer o Jarvis errar</h2>
+    <p>Sigilo profissional não é uma configuração que se liga depois. É o desenho do sistema. Clique e veja cada trava agir.</p>
+    <div class="travas" id="lista-travas"></div>
+  </section>
+
+  <section id="tempo">
+    <p class="num">O dia de hoje</p>
+    <h2>Quanto custa, hoje, entender cada caso que chega?</h2>
+    <p>Enquanto você está em audiência, três pessoas escreveram no WhatsApp do escritório. Nenhuma disse o nome; duas mandaram áudio. Isso não é advocacia, mas consome hora de advogado. Ajuste com os seus números:</p>
     <div class="calc">
-      <div class="calc-linha">
-        <label for="c-contatos">Contatos novos por semana no WhatsApp do escritório</label>
-        <input type="number" id="c-contatos" value="15" min="0" max="500" step="1">
-      </div>
-      <div class="calc-linha">
-        <label for="c-minutos">Minutos até entender o caso de cada um (ouvir áudio, perguntar, anotar)</label>
-        <input type="number" id="c-minutos" value="12" min="0" max="240" step="1">
-      </div>
-      <div class="calc-linha">
-        <label for="c-hora">Quanto vale uma hora sua, em reais</label>
-        <input type="number" id="c-hora" value="300" min="0" max="5000" step="10">
-      </div>
-      <div class="calc-saida" aria-live="polite">
-        <p>Triagem manual por mês</p>
-        <b id="s-horas">—</b>
-        <p style="margin-top:.8rem">Equivalente, por ano, em hora de advogado</p>
-        <b id="s-reais">—</b>
+      <div class="calc-linha"><label for="c-contatos">Contatos novos por semana</label><output id="o-contatos"></output><input type="range" id="c-contatos" min="1" max="120" step="1"></div>
+      <div class="calc-linha"><label for="c-minutos">Minutos para entender cada caso</label><output id="o-minutos"></output><input type="range" id="c-minutos" min="2" max="60" step="1"></div>
+      <div class="calc-linha"><label for="c-hora">Valor da sua hora (R$)</label><output id="o-hora"></output><input type="range" id="c-hora" min="50" max="1500" step="10"></div>
+      <div class="calc-saida">
+        <div><small>Triagem manual por mês</small><b id="s-horas">—</b></div>
+        <div><small>Em hora de advogado, por ano</small><b id="s-reais">—</b></div>
+        <div><small>Dias úteis inteiros por ano</small><b id="s-dias">—</b></div>
       </div>
     </div>
-    <p class="so-leitura" style="margin-top:.9rem">A conta é sua, com os seus números. O sistema não devolve 100% desse tempo: devolve a primeira conversa, a coleta de documentos, a transcrição dos áudios e o resumo do caso — já na sua mão quando você senta para decidir.</p>
+    <p class="leve" style="margin-top:.8rem">A conta é sua. O Jarvis não devolve 100% desse tempo: devolve a primeira conversa, a coleta de documentos, a transcrição dos áudios e o resumo do caso, já na sua mão quando você senta para decidir.</p>
   </section>
 
-  <section id="atendimento">
-    <p class="num">Produto principal</p>
-    <h2>O Jarvis atende, entrevista e entrega o caso pronto para você decidir</h2>
-    <p>O cliente conversa pelo WhatsApp do escritório, do jeito que ele já conversa. Do outro lado, um assistente que entende texto, áudio, PDF e foto, faz as perguntas certas, organiza tudo numa pasta e chama você no momento em que a decisão é jurídica.</p>
-    <p class="destaque">O que vai para o cliente é texto conferido pelo sistema. Orientação jurídica, prazo, previsão de resultado e valor não saem sem o advogado.</p>
-
-    <div class="demo">
-      <div class="demo-topo">
-        <span>demonstração</span>
-        <div>Caso novo, do primeiro oi à proposta enviada</div>
-      </div>
-      <div class="demo-corpo" id="demo-corpo" aria-live="polite"></div>
-      <div class="demo-pe">
-        <button class="bt" id="bt-proximo">Avançar a conversa</button>
-        <button class="bt sec" id="bt-reiniciar">Começar de novo</button>
-        <span class="passo-conta" id="passo-conta">passo 0 de 0</span>
-      </div>
-    </div>
-    <p class="so-leitura" style="margin-top:.9rem">Tudo o que aparece acima é fluxo real do sistema em produção. Os nomes e valores são fictícios.</p>
-  </section>
-
-  <section id="produtos">
-    <p class="num">O que oferecemos</p>
-    <h2>Oito frentes, escolhidas uma a uma</h2>
-    <p>Ninguém precisa comprar tudo. Cada frente funciona sozinha, e a ordem de implantação é decidida pelo que dói mais no seu escritório.</p>
-
-    <div class="produtos">
-      <div class="cartao">
-        <span class="chip ar">em operação</span>
-        <h3>Atendimento no WhatsApp</h3>
-        <p>Menu de caminhos, entrevista do caso novo conduzida por IA, leitura de documento e áudio, pasta por contato e aviso resumido para o advogado.</p>
-        <p class="ganho"><b>O que muda:</b> ninguém fica sem resposta, e o caso chega organizado.</p>
-      </div>
-      <div class="cartao">
-        <span class="chip ar">em operação</span>
-        <h3>Painel de gestão do escritório</h3>
-        <p>Processos, clientes, prazos, documentos e financeiro num só lugar, alimentado pelas publicações oficiais e pelo próprio atendimento.</p>
-        <p class="ganho"><b>O que muda:</b> a situação do escritório deixa de morar na sua cabeça.</p>
-      </div>
-      <div class="cartao">
-        <span class="chip obra">em implantação</span>
-        <h3>CRM integrado à gestão</h3>
-        <p>Cada contato com um papel (cliente, lead, colega), esteira comercial com etapas e responsável, proposta e retomada ligadas ao caso e ao financeiro.</p>
-        <p class="ganho"><b>O que muda:</b> lead parado passa a ser cobrado pelo sistema, não pela memória.</p>
-      </div>
-      <div class="cartao">
-        <span class="chip ar">em operação</span>
-        <h3>Prazos e publicações</h3>
-        <p>Publicações pela OAB e avisos do tribunal viram cartão de prazo e evento na agenda, com lembrete e marcação de conferência.</p>
-        <p class="ganho"><b>O que muda:</b> prazo deixa de depender de quem lembrou de olhar.</p>
-      </div>
-      <div class="cartao">
-        <span class="chip ar">em operação</span>
-        <h3>Proposta e documentos</h3>
-        <p>Proposta de honorários, procuração, declaração e contrato em Word com a identidade visual do escritório, versionados, prontos para sua revisão.</p>
-        <p class="ganho"><b>O que muda:</b> contrato fechado no primeiro atendimento, não três dias depois.</p>
-      </div>
-      <div class="cartao">
-        <span class="chip ar">em operação</span>
-        <h3>Financeiro com Open Finance</h3>
-        <p>Extrato das contas do escritório entrando sozinho, classificação ditada por mensagem e baixa automática das parcelas de honorários.</p>
-        <p class="ganho"><b>O que muda:</b> caixa atualizado sem planilha e sem digitação.</p>
-      </div>
-      <div class="cartao">
-        <span class="chip sob">sob encomenda</span>
-        <h3>Presença nas redes</h3>
-        <p>Publicação programada no Instagram — posts e stories — com conteúdo jurídico que cita fonte oficial e passa pela sua aprovação antes de ir ao ar.</p>
-        <p class="ganho"><b>O que muda:</b> perfil ativo toda semana sem você virar produtor de conteúdo.</p>
-      </div>
-      <div class="cartao">
-        <span class="chip sob">sob encomenda</span>
-        <h3>Landing page e captação</h3>
-        <p>Página de captura com a cara do escritório; quem preenche cai direto no WhatsApp e no CRM, já classificado pela área do caso.</p>
-        <p class="ganho"><b>O que muda:</b> o interessado entra na esteira no mesmo minuto em que chegou.</p>
-      </div>
-    </div>
+  <section id="monte">
+    <p class="num">Monte o seu</p>
+    <h2>Escolha as frentes. O plano se monta sozinho.</h2>
+    <p>Ninguém precisa contratar tudo. Marque o que interessa; as recomendadas para o seu perfil vêm sinalizadas.</p>
+    <div class="frentes" id="frentes"></div>
+    <div class="plano" id="plano" aria-live="polite"></div>
   </section>
 
   <section id="caminho">
     <p class="num">O fluxo completo</p>
-    <h2>Do primeiro oi ao contrato assinado</h2>
-    <p>O advogado entra em três pontos: os valores, a revisão da proposta e o sim do envio. O resto acontece sem ele.</p>
-
-    <ol class="linha-tempo">
-      <li><span class="quem">cliente</span><b>Escreve no WhatsApp do escritório</b><small>Recebe o menu de caminhos. Se alguém do escritório falou com ele nas últimas 12 horas, a IA nem entra na conversa.</small></li>
-      <li><span class="quem">sistema</span><b>Entrevista o caso</b><small>Uma ou duas perguntas por vez, pede os documentos que faltam, transcreve os áudios e guarda tudo na pasta daquele contato.</small></li>
-      <li><span class="quem">advogado</span><b>Recebe a pré-análise</b><small>Resumo, enquadramento, viabilidade, o que confirmar, o que falta e a referência da tabela de honorários da seccional.</small></li>
-      <li><span class="quem">advogado</span><b>Informa os honorários</b><small>Cerca de 48 segundos depois, a proposta em Word chega no WhatsApp dele, com o texto sugerido para o cliente. Nada foi enviado ainda.</small></li>
-      <li><span class="quem">advogado</span><b>Revisa e libera</b><small>Pode editar e enviar sozinho, pedir ajuste, pedir só o PDF ou dizer “pode enviar”. O envio exige prévia e confirmação.</small></li>
-      <li><span class="quem">cliente</span><b>Recebe a proposta em PDF e agenda</b><small>Escolhe presencial ou videoconferência num horário livre; o compromisso entra na agenda com lembretes.</small></li>
-      <li><span class="quem">sistema</span><b>Contrata e acompanha</b><small>Kit de contratação gerado, parcelas no financeiro, PIX baixando a parcela certa e o processo entrando na carteira pelas publicações oficiais.</small></li>
-    </ol>
-  </section>
-
-  <section id="sigilo">
-    <p class="num">A pergunta que todo advogado faz primeiro</p>
-    <h2>O dado do cliente fica no seu escritório, e você decide tudo</h2>
-    <p>Sigilo profissional não é uma configuração que se liga depois. É o desenho do sistema, e é a parte que mais revisamos.</p>
-
-    <ul class="lista">
-      <li><b>Nada com efeito externo acontece sem o seu sim.</b><small>Enviar proposta, marcar compromisso, baixar pagamento: o sistema mostra uma prévia com destinatário, arquivo e um código de uso único, e só executa depois da sua confirmação com aquele código.</small></li>
-      <li><b>Os arquivos ficam na máquina do escritório.</b><small>Pastas dos casos, documentos e transcrições não vão para servidor de terceiro. O servidor na internet guarda apenas o necessário para o WhatsApp funcionar.</small></li>
-      <li><b>Ao cliente, só texto conferido.</b><small>A IA interpreta e resume; o que sai é texto aprovado antes. Sem orientação jurídica, sem prazo, sem previsão de resultado, sem valor.</small></li>
-      <li><b>Honorário é decisão sua.</b><small>O sistema não tem valor padrão, não calcula honorários e se recusa a gerar proposta sem o valor que você ditar. Os valores entram no documento sem passar por modelo de IA.</small></li>
-      <li><b>Você assume a conversa quando quiser.</b><small>Um comando tira a IA da conversa na hora; outro devolve. Toda mudança no atendimento é testada primeiro no número do próprio advogado.</small></li>
-      <li><b>Leitura onde basta ler.</b><small>E-mail, extrato bancário e consulta processual são acessados apenas para leitura. O sistema não envia, não apaga e não toma ciência de intimação no seu lugar.</small></li>
-      <li><b>Prazo calculado por máquina é sempre provisório.</b><small>Entra marcado para conferência, e essa regra nunca foi flexibilizada.</small></li>
-    </ul>
+    <h2>Do primeiro "oi" ao contrato assinado</h2>
+    <p>O advogado entra em três pontos: os valores, a revisão da proposta e o "sim" do envio. O resto acontece sem ele.</p>
+    <ol class="trilha" id="trilha"></ol>
   </section>
 
   <section id="prova">
     <p class="num">Por que não é experimento</p>
     <h2>Isso já apanhou na vida real</h2>
-    <p>O sistema nasceu dentro de um escritório em funcionamento, atendendo clientes de verdade, com prazo correndo. Cada regra dele existe porque algo deu errado antes.</p>
-
+    <p>O sistema nasceu dentro de um escritório em funcionamento, com clientes de verdade e prazo correndo. Cada regra existe porque algo deu errado antes, e foi corrigido no mesmo dia.</p>
     <div class="stats">
       <div class="stat"><b>set/2026</b><small>em operação contínua desde então</small></div>
-      <div class="stat"><b>48 s</b><small>do pedido à proposta em Word pronta</small></div>
-      <div class="stat"><b>0,75 s</b><small>para transcrever um áudio do cliente</small></div>
-      <div class="stat"><b>234</b><small>testes automáticos antes de cada mudança</small></div>
+      <div class="stat"><b data-conta="48" data-suf=" s">0</b><small>do pedido à proposta em Word pronta</small></div>
+      <div class="stat"><b data-conta="0.7" data-suf=" s" data-dec="1">0</b><small>para transcrever um áudio, dentro do escritório</small></div>
+      <div class="stat"><b data-conta="570" data-suf="+">0</b><small>testes automáticos antes de cada mudança</small></div>
     </div>
-
-    <h3>Três erros que já pagamos para você não pagar</h3>
-    <ul class="lista">
-      <li><b>Crédito de IA acabou e parou o atendimento.</b><small>Hoje há recarga automática, vigilância do saldo e aviso que chega em quem decide. Uma única chave de acesso é ponto único de falha.</small></li>
-      <li><b>O menu automático foi para banco e loja.</b><small>Contas automáticas também escrevem no WhatsApp do escritório. Hoje existe lista de exclusão e acompanhamento próximo nos primeiros dias.</small></li>
-      <li><b>A IA relativizou a tese afirmada pelo advogado.</b><small>Hoje o fato e a tese que você informa entram afirmados, e a pré-análise automática não decide viabilidade no seu lugar.</small></li>
-    </ul>
-  </section>
-
-  <section id="implantacao">
-    <p class="num">Como começa</p>
-    <h2>Diagnóstico, piloto, operação</h2>
-    <p>Não há instalação de pacote fechado. A implantação acompanha a forma como o seu escritório já trabalha.</p>
-
-    <ol class="linha-tempo">
-      <li><span class="quem">etapa 1 &middot; conversa de 40 minutos</span><b>Diagnóstico</b><small>O que o escritório faz hoje, quantos contatos chegam, onde o tempo escapa e qual frente devolve mais rápido. Sem custo e sem compromisso.</small></li>
-      <li><span class="quem">etapa 2 &middot; 2 a 4 semanas</span><b>Piloto no seu número</b><small>Canal controlado, triagem e pasta por contato. Tudo testado primeiro no número do próprio advogado, antes de encostar em cliente.</small></li>
-      <li><span class="quem">etapa 3 &middot; contínuo</span><b>Operação e acompanhamento</b><small>As frentes escolhidas entram uma por vez, com backup antes de cada mudança e retorno ao estado anterior em minutos.</small></li>
-    </ol>
-
-    <div class="alerta">
-      <p><b>Investimento sob medida.</b> O valor depende das frentes escolhidas e do tamanho do escritório, e é apresentado por escrito depois do diagnóstico. Sem o diagnóstico, qualquer número seria chute.</p>
-    </div>
+    <h3>Erros que já pagamos para você não pagar</h3>
+    <div class="erros" id="erros"></div>
   </section>
 
   <section id="perguntas">
     <p class="num">Perguntas que todo escritório faz</p>
     <h2>As dúvidas antes da primeira conversa</h2>
+    <label class="sr" for="busca">Procurar nas perguntas</label>
+    <input class="busca" id="busca" type="search" placeholder="Procure: sigilo, voz, OAB, internet…">
+    <div id="lista-perguntas"></div>
+    <p class="nenhuma" id="nenhuma">Nenhuma pergunta com esse termo. Pergunte direto na demonstração.</p>
+  </section>
 
-    <details>
-      <summary>Meu cliente vai perceber que está falando com um robô?</summary>
-      <p>Ele percebe que está sendo atendido com organização. O sistema se apresenta como assistente do escritório, não finge ser você, e nenhuma orientação jurídica sai dele. Na primeira pergunta que exija advogado, a conversa vai para você — e você pode assumir a qualquer momento com um comando.</p>
-    </details>
-    <details>
-      <summary>Isso é compatível com o Código de Ética e com o Provimento 205/2021?</summary>
-      <p>O software é fornecido por empresa de tecnologia, não por sociedade de advogados, e as marcas são deliberadamente separadas. O sistema organiza o atendimento de quem já procurou o escritório; ele não prospecta terceiros nem faz captação. O que o escritório publica nas redes continua sendo decisão e responsabilidade do advogado, com a aprovação dele antes de cada publicação.</p>
-    </details>
-    <details>
-      <summary>Preciso trocar o sistema que já uso?</summary>
-      <p>Não. A entrada é pelo WhatsApp, que o escritório já usa, e o painel pode conviver com o que estiver em funcionamento. A migração de dados, quando faz sentido, é feita com cópia preservada e possibilidade de voltar atrás.</p>
-    </details>
-    <details>
-      <summary>Onde ficam os dados dos meus clientes?</summary>
-      <p>No computador do escritório. O servidor na internet guarda apenas o mínimo para o WhatsApp funcionar, com acesso só por chave e nenhuma porta aberta além das necessárias. O tratamento segue a LGPD e o dever de sigilo profissional.</p>
-    </details>
-    <details>
-      <summary>E se a internet cair, ou a IA ficar fora do ar?</summary>
-      <p>O canal continua recebendo e nada se perde. Transcrição de áudio e respostas operacionais rodam em modelo local, dentro do escritório. O que depende de nuvem espera e é avisado, em vez de responder errado.</p>
-    </details>
-    <details>
-      <summary>Preciso de equipe de tecnologia no escritório?</summary>
-      <p>Não. Implantação, manutenção, backup e correção são nossos. Do seu lado, o necessário é o número do escritório, o computador onde ficam os dados e as decisões que só o advogado pode tomar.</p>
-    </details>
-    <details>
-      <summary>Funciona com a minha seccional e com os meus tribunais?</summary>
-      <p>As publicações vêm das APIs públicas do CNJ, consultadas pela OAB do escritório: vale para qualquer seccional e para os tribunais que publicam ali. O acesso ao PJe continua sendo seu, com certificado e segundo fator — o sistema não entra no PJe no seu lugar.</p>
-    </details>
-
+  <section id="contato">
     <div class="cta">
-      <h2>Quer ver isso rodando com o caso do seu escritório?</h2>
-      <p>Demonstração de 30 minutos, com um caso real seu, no número do seu escritório. Você vê a entrevista acontecendo, a pré-análise chegando e a proposta sendo gerada, sem compromisso.</p>
-      <p class="contato">
-        Agendamento direto com a equipe da Carajás HubTech<br>
-        Marabá/PA &middot; atendimento remoto em todo o Brasil
-      </p>
+      <h2>Quer ver isso com um caso real do seu escritório?</h2>
+      <p>Demonstração de 30 minutos, no número do seu escritório: a entrevista acontecendo, a pré-análise chegando, a proposta sendo gerada e a prévia esperando o seu "sim". Sem compromisso. O investimento é sob medida e vem por escrito depois do diagnóstico.</p>
+      <div class="acoes" id="acoes-contato"></div>
+      <p class="leve" style="color:#8495AB;margin:.9rem 0 0">Carajás HubTech &middot; Marabá/PA &middot; atendimento remoto em todo o Brasil</p>
     </div>
   </section>
 
-</main>
+</div></main>
 
 <footer>
   <div class="wrap">
-    <h3>Carajás HubTech</h3>
-    <p>Tecnologia e automação para escritórios de advocacia</p>
-    <p class="assina" style="margin-top:1.4rem">Apresentação comercial v1 &middot; outubro de 2026</p>
-    <p style="margin:0">Marabá, Pará</p>
-
+    <b>Carajás HubTech</b><br>Tecnologia e automação para escritórios de advocacia &middot; Marabá, Pará
     <p class="fontes">
-      Este material descreve software e serviços de uma empresa de tecnologia. Não é publicidade de serviços de advocacia e não constitui oferta de atividade privativa de advogado.
-      Os números apresentados foram medidos em operação real, num único escritório, entre setembro e outubro de 2026, e variam conforme o volume e a infraestrutura de cada contratante.
-      Nenhum dado de cliente, nome, número de telefone ou número de processo consta deste documento; os exemplos são fictícios.
-      Funcionalidades marcadas como “em implantação” ou “sob encomenda” têm prazo e escopo definidos em proposta específica.
+      Este material descreve software e serviços de uma empresa de tecnologia. Não é publicidade de serviços de advocacia e não constitui oferta de atividade privativa de advogado.<br>
+      Os números foram medidos em operação real, num único escritório, entre setembro e outubro de 2026, e variam conforme o volume e a infraestrutura de cada contratante.<br>
+      A simulação usa nomes, números e valores fictícios; nenhum dado de cliente consta desta página. Funcionalidades "em implantação" ou "sob encomenda" têm prazo e escopo definidos em proposta específica.
     </p>
   </div>
 </footer>
 
+<div class="tour-veu" id="tour-veu"><div class="tour-foco" id="tour-foco"></div></div>
+<div class="tour-cartao" id="tour-cartao" role="dialog" aria-labelledby="tour-titulo">
+  <h3 id="tour-titulo"></h3><p id="tour-texto"></p>
+  <div class="tour-pe"><span id="tour-conta"></span><button class="bt sec" id="tour-sair" type="button">Sair</button><button class="bt" id="tour-prox" type="button">Próximo</button></div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<div class="atalhos" id="atalhos" role="dialog" aria-label="Atalhos de teclado"><div>
+  <b>Atalhos de teclado</b>
+  <dl><dt><kbd>F9</kbd></dt><dd>falar com o Jarvis (modo voz)</dd><dt><kbd>F10</kbd></dt><dd>calar o Jarvis</dd><dt><kbd>F8</kbd></dt><dd>confirmar a prévia na tela</dd><dt><kbd>T</kbd></dt><dd>tour de 1 minuto</dd><dt><kbd>R</kbd></dt><dd>recomeçar a conversa</dd><dt><kbd>?</kbd></dt><dd>esta lista</dd><dt><kbd>Esc</kbd></dt><dd>fechar</dd></dl>
+  <p class="leve" style="margin:.8rem 0 0">No Jarvis de verdade, F9, F10 e F8 são exatamente essas teclas no computador do escritório.</p>
+</div></div>
+
 <script>
 (function(){
-  /* ----- barra de progresso de leitura + seção ativa ----- */
-  var barra = document.getElementById('preenchimento');
-  var links = Array.prototype.slice.call(document.querySelectorAll('.navlinks a'));
-  var secoes = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+"use strict";
+/* ================= contato (preencher quando houver) ================= */
+var CONTATO = { whatsapp: "", email: "" }; // ex.: whatsapp: "5594900000000"
 
-  function aoRolar(){
-    var alcance = document.documentElement.scrollHeight - window.innerHeight;
-    var pct = alcance > 0 ? (window.scrollY / alcance) * 100 : 0;
-    barra.style.width = Math.min(100, Math.max(0, pct)) + '%';
+/* ================= dados ================= */
+var PERFIS = [
+  {id:"solo", nome:"Advogado(a) solo", desc:"Você atende, peticiona e cobra.", contatos:12, minutos:15, hora:250,
+   dores:["Cliente novo chega enquanto você está em audiência","Proposta escrita à noite","Prazo que depende só da sua memória"],
+   recomenda:["whatsapp","pessoal","prazos","proposta"]},
+  {id:"pequeno", nome:"Escritório pequeno", desc:"2 a 5 pessoas, um WhatsApp para todos.", contatos:30, minutos:12, hora:300,
+   dores:["Ninguém sabe quem respondeu quem","Arquivo do cliente perdido no celular de alguém","Financeiro em planilha atrasada"],
+   recomenda:["whatsapp","envios","prazos","financeiro","proposta"]},
+  {id:"volume", nome:"Volume alto", desc:"Previdenciário, consumidor, massa.", contatos:80, minutos:10, hora:200,
+   dores:["Dezenas de contatos novos por semana","Mesmas perguntas o dia inteiro","Publicações demais para conferir"],
+   recomenda:["whatsapp","prazos","envios","crm","captacao"]},
+  {id:"equipe", nome:"Sócio com equipe", desc:"Você decide; a equipe executa.", contatos:40, minutos:12, hora:500,
+   dores:["Decisão travada esperando você","Retrabalho para mandar arquivo ao cliente","Sem visão do que está parado"],
+   recomenda:["pessoal","envios","prazos","crm","financeiro"]}
+];
+var FRENTES = [
+  {id:"whatsapp", nome:"Atendimento no WhatsApp", st:"ar", semanas:2, desc:"Menu, entrevista do caso novo por IA, leitura de áudio, PDF e foto, pasta por contato e aviso ao advogado."},
+  {id:"pessoal", nome:"Assistente pessoal (WhatsApp e voz)", st:"ar", semanas:1, desc:"Consulta processos, prazos, agenda e financeiro; abre pastas e sessões de análise; manda o que você pedir ao seu celular."},
+  {id:"envios", nome:"Envio a clientes por WhatsApp e e-mail", st:"ar", semanas:1, desc:"Mensagem, arquivo da pasta ou e-mail com anexo, com destinatário pelo nome. Sempre com prévia e o seu sim."},
+  {id:"prazos", nome:"Prazos e publicações", st:"ar", semanas:1, desc:"Publicações oficiais viram cartão de prazo e evento na agenda, com lembrete e conferência."},
+  {id:"proposta", nome:"Proposta e documentos", st:"ar", semanas:1, desc:"Proposta, procuração, declaração e contrato em Word com a sua identidade, prontos para revisão."},
+  {id:"financeiro", nome:"Financeiro com Open Finance", st:"ar", semanas:1, desc:"Extrato entrando sozinho, classificação por mensagem e baixa automática das parcelas."},
+  {id:"crm", nome:"Assinatura eletrônica e CRM", st:"obra", semanas:3, desc:"Kit para assinatura eletrônica e esteira comercial ligada ao caso e ao financeiro."},
+  {id:"redes", nome:"Presença nas redes", st:"sob", semanas:3, desc:"Instagram programado, com fonte oficial e a sua aprovação antes de publicar."},
+  {id:"captacao", nome:"Landing page e captação", st:"sob", semanas:2, desc:"Página com a cara do escritório; o interessado cai no WhatsApp e no CRM já classificado."}
+];
+var ROTULO_ST = {ar:"em operação", obra:"em implantação", sob:"sob encomenda"};
+var TRILHA = [
+  ["cliente","Escreve no WhatsApp do escritório","Recebe o menu. Se alguém do escritório falou com ele nas últimas 12 horas, a IA nem entra na conversa."],
+  ["sistema","Entrevista o caso","Uma ou duas perguntas por vez; pede os documentos que faltam, transcreve os áudios e guarda tudo na pasta do contato."],
+  ["advogado","Recebe a pré-análise","Resumo, enquadramento, viabilidade, o que confirmar, o que falta e a referência da tabela de honorários da seccional."],
+  ["advogado","Informa os honorários","Cerca de 48 segundos depois, a proposta em Word chega no WhatsApp dele. Nada foi enviado ainda."],
+  ["advogado","Revisa e libera","A prévia mostra para quem vai, o que vai e de qual pasta. Sai no sim."],
+  ["cliente","Recebe a proposta em PDF e agenda","Escolhe presencial ou vídeo num horário livre; o compromisso entra na agenda com lembretes."],
+  ["sistema","Contrata e acompanha","Kit gerado, parcelas no financeiro, PIX dando baixa na parcela certa e o processo entrando pelas publicações oficiais."]
+];
+var ERROS = [
+  ["O crédito de IA acabou e parou o atendimento.","Hoje há recarga automática, vigilância do saldo e aviso que chega a quem decide."],
+  ["O menu automático respondeu banco e loja.","Contas automáticas também escrevem no WhatsApp do escritório. Hoje existe lista de exclusão e acompanhamento nos primeiros dias."],
+  ["A IA relativizou a tese afirmada pelo advogado.","Hoje o fato e a tese que você informa entram afirmados, e a pré-análise não decide viabilidade no seu lugar."],
+  ["Um sim respondendo à prévia citada não confirmava nada.","O advogado repetia o sim e o sistema refazia a prévia. Hoje a confirmação reconhece a prévia citada, e um sim confirma uma coisa só."]
+];
+var PERGUNTAS = [
+  ["Ele vai mandar mensagem sozinho para os meus clientes?","Não. Ao cliente novo, o atendimento responde com textos fixos e conferidos. Tudo o que você pede para mandar passa por uma prévia com destinatário, conteúdo e código, e só sai com o seu sim. Sem prévia, só o que vai para você mesmo.","sigilo envio cliente previa"],
+  ["Meu cliente vai perceber que está falando com um robô?","Ele percebe que está sendo atendido com organização. O sistema se apresenta como assistente do escritório, não finge ser você, e nenhuma orientação jurídica sai dele. Você assume a conversa quando quiser, com um comando.","robo atendimento"],
+  ["Funciona por voz mesmo?","Sim. No computador do escritório você aperta F9, fala, e ele responde em voz alta. O microfone só abre na tecla. Envio a terceiros se confirma com F8, com a prévia aberta na tela.","voz f9 f8 computador"],
+  ["Isso é compatível com o Código de Ética e com o Provimento 205/2021?","O software é fornecido por empresa de tecnologia, não por sociedade de advogados, e as marcas são separadas de propósito. O sistema organiza o atendimento de quem já procurou o escritório; ele não prospecta terceiros. O que o escritório publica continua sendo decisão do advogado.","oab etica provimento 205 publicidade"],
+  ["Onde ficam os dados dos meus clientes?","No computador do escritório. O servidor na internet guarda apenas o mínimo para o WhatsApp funcionar, com acesso só por chave. O tratamento segue a LGPD e o sigilo profissional. Banco e consulta processual são só leitura; o e-mail tem permissão só de envio, separada.","dados lgpd sigilo servidor email"],
+  ["Preciso trocar o sistema que já uso?","Não. A entrada é pelo WhatsApp que o escritório já usa, e o painel convive com o que estiver funcionando. Migração, quando faz sentido, com cópia preservada e volta atrás.","migracao sistema"],
+  ["E se a internet cair ou a IA sair do ar?","O canal continua recebendo, e uma vigia avisa o escritório se houver mensagem parada. Transcrição e respostas operacionais rodam em modelo local. O que depende da nuvem espera e avisa, em vez de responder errado.","internet queda ia fora"],
+  ["Preciso de equipe de tecnologia?","Não. Implantação, manutenção, backup e correção são nossos. Do seu lado: o número do escritório, o computador onde ficam os dados e as decisões que só o advogado toma.","equipe ti tecnologia"],
+  ["Funciona com a minha seccional e os meus tribunais?","As publicações vêm das APIs públicas do CNJ, pela OAB do advogado: vale para qualquer seccional. O acesso ao PJe continua seu, com certificado e segundo fator; o sistema não entra no PJe no seu lugar.","seccional tribunal pje cnj"],
+  ["Quanto custa?","É sob medida: depende das frentes escolhidas e do tamanho do escritório, e vem por escrito depois do diagnóstico gratuito. Monte o seu acima e mande o plano para a gente.","preco custo valor investimento"]
+];
 
-    var ativo = 0;
-    for (var i = 0; i < secoes.length; i++){
-      if (secoes[i] && secoes[i].getBoundingClientRect().top <= 140) ativo = i;
-    }
-    links.forEach(function(a, i){
-      if (i === ativo) a.setAttribute('aria-current', 'true');
-      else a.removeAttribute('aria-current');
-    });
-  }
-  window.addEventListener('scroll', aoRolar, {passive:true});
-  window.addEventListener('resize', aoRolar);
-  aoRolar();
+/* ================= utilidades ================= */
+var $ = function(id){ return document.getElementById(id); };
+function el(tag, cls, txt){ var e=document.createElement(tag); if(cls) e.className=cls; if(txt!=null) e.textContent=txt; return e; }
+var guardar = {
+  ler:function(k,p){ try{ var v=localStorage.getItem("jarvis-vitrine:"+k); return v==null?p:JSON.parse(v);}catch(e){return p;} },
+  gravar:function(k,v){ try{ localStorage.setItem("jarvis-vitrine:"+k, JSON.stringify(v)); }catch(e){} }
+};
+var tToast;
+function toast(t){ var e=$("toast"); e.textContent=t; e.classList.add("mostra"); clearTimeout(tToast); tToast=setTimeout(function(){e.classList.remove("mostra");},2600); }
+function moeda(v){ return v.toLocaleString("pt-BR",{style:"currency",currency:"BRL",maximumFractionDigits:0}); }
+var reduz = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ----- calculadora de triagem manual ----- */
-  var ctt = document.getElementById('c-contatos');
-  var min = document.getElementById('c-minutos');
-  var hora = document.getElementById('c-hora');
-  var sHoras = document.getElementById('s-horas');
-  var sReais = document.getElementById('s-reais');
-
-  function num(el, padrao){
-    var v = parseFloat(el.value);
-    return isFinite(v) && v >= 0 ? v : padrao;
-  }
-  function moeda(v){
-    return v.toLocaleString('pt-BR', {style:'currency', currency:'BRL', maximumFractionDigits:0});
-  }
-  function calcular(){
-    var semanais = num(ctt, 0), minutos = num(min, 0), valor = num(hora, 0);
-    var horasMes = (semanais * minutos * 4.33) / 60;
-    sHoras.textContent = horasMes.toLocaleString('pt-BR', {maximumFractionDigits:1}) + ' horas';
-    sReais.textContent = moeda(horasMes * 12 * valor);
-  }
-  [ctt, min, hora].forEach(function(el){
-    el.addEventListener('input', calcular);
+/* ================= perfil ================= */
+var perfil = guardar.ler("perfil", null);
+function desenharPortas(){
+  var c=$("portas"); c.innerHTML="";
+  PERFIS.forEach(function(p){
+    var b=el("button","porta"); b.type="button"; b.setAttribute("aria-pressed", String(perfil===p.id));
+    b.appendChild(el("b",null,p.nome)); b.appendChild(el("small",null,p.desc));
+    b.addEventListener("click",function(){ escolherPerfil(p.id, true); });
+    c.appendChild(b);
   });
-  calcular();
+}
+function escolherPerfil(id, rolar){
+  perfil=id; guardar.gravar("perfil",id); desenharPortas();
+  var p=PERFIS.filter(function(x){return x.id===id;})[0]; if(!p) return;
+  var pv=$("para-voce"); pv.hidden=false; pv.innerHTML="";
+  pv.appendChild(el("b",null,"Para "+p.nome.toLowerCase()));
+  pv.appendChild(document.createTextNode("O que costuma doer:"));
+  var ul=el("ul"); p.dores.forEach(function(d){ ul.appendChild(el("li",null,d)); }); pv.appendChild(ul);
+  ["contatos","minutos","hora"].forEach(function(k){ $("c-"+k).value=p[k]; });
+  calcular(); recomendar(p);
+  if(rolar){ toast("Página ajustada para: "+p.nome); document.getElementById("experimente").scrollIntoView({behavior: reduz?"auto":"smooth"}); }
+}
 
-  /* ----- demonstração da conversa, passo a passo ----- */
-  var roteiro = [
-    {de:'cliente', quem:'Cliente, 9h12', texto:'Bom dia, preciso falar com um advogado'},
-    {de:'jarvis', quem:'Assistente do escritório', texto:'Bom dia! Sou o assistente do escritório. Para te direcionar: 1 Advocacia, 2 Negócios e inovação, 3 Pessoal.'},
-    {de:'cliente', quem:'Cliente', texto:'1'},
-    {de:'jarvis', quem:'Assistente do escritório', texto:'Perfeito. Como é o seu nome completo? E me conte, com suas palavras, o que aconteceu.'},
-    {de:'cliente', quem:'Cliente', texto:'🎤 áudio de 1min14 + foto do contrato'},
-    {de:'sistema', quem:'nos bastidores', texto:'Áudio transcrito no computador do escritório em 0,75 s. Contrato identificado e salvo na pasta do contato. Nada saiu da máquina.'},
-    {de:'jarvis', quem:'Assistente do escritório', texto:'Obrigado. Duas perguntas: você chegou a pedir o cancelamento por escrito? E tem o comprovante das parcelas pagas?'},
-    {de:'cliente', quem:'Cliente', texto:'Pedi por e-mail em agosto. Mando os comprovantes agora.'},
-    {de:'jarvis', quem:'Assistente do escritório', texto:'Recebido. O Dr. vai analisar e eu te respondo ainda hoje com os próximos passos.'},
-    {de:'sistema', quem:'nos bastidores', texto:'Pré-análise automática enviada ao advogado: resumo, enquadramento, viabilidade, pontos a confirmar, documentos faltantes e referência da tabela de honorários. O cliente não vê nada disso.'},
-    {de:'advogado', quem:'Advogado', texto:'Jarvis, gera a proposta dessa pasta. R$ 2.500 fixos mais 20% de êxito.'},
-    {de:'sistema', quem:'nos bastidores', texto:'48 segundos depois: proposta em Word na pasta do caso, texto sugerido para o cliente e lista de pontos a conferir — tudo só para o advogado.'},
-    {de:'advogado', quem:'Advogado', texto:'Pode enviar.'},
-    {de:'jarvis', quem:'Assistente, só para o advogado', texto:'Prévia: PDF “Proposta de atendimento”, para o contato ••••-4820. Código AX7K. Confirma?'},
-    {de:'advogado', quem:'Advogado', texto:'Sim'},
-    {de:'jarvis', quem:'Assistente do escritório', texto:'Enviei a proposta em PDF ao cliente, com o convite para agendar a reunião. Responde “agendar” para escolher o horário.'},
-    {de:'cliente', quem:'Cliente, 14h03', texto:'agendar'},
-    {de:'sistema', quem:'nos bastidores', texto:'Cliente escolhe videoconferência às 16h de quinta. O advogado confirma por código e o compromisso entra na agenda, com lembrete um dia e uma hora antes.'}
-  ];
+/* ================= simulador ================= */
+var modoVoz=false, ocupado=false, armado=null, armadoEm=0, falarAlto=false, fila=[];
+var feitos = guardar.ler("feitos", {});
+var CONQ = [["proposta","proposta"],["previa","prévia"],["trava","trava testada"],["homonimo","homônimo"],["voz","voz"],["email","e-mail"]];
+function marcarFeito(k){ if(!feitos[k]){ feitos[k]=true; guardar.gravar("feitos",feitos); desenharConq(); if(Object.keys(feitos).length===CONQ.length) toast("Você testou tudo. Agora imagine isso com os seus clientes."); } }
+function desenharConq(){ var c=$("conquistas"); c.innerHTML=""; CONQ.forEach(function(q){ c.appendChild(el("span","conq"+(feitos[q[0]]?" feito":""),q[1])); }); }
 
-  var corpo = document.getElementById('demo-corpo');
-  var btProx = document.getElementById('bt-proximo');
-  var btRe = document.getElementById('bt-reiniciar');
-  var conta = document.getElementById('passo-conta');
-  var passo = 0;
+var CODIGOS = ["3fa91c07be2d","a17e40c9d353","9c02b8e61f4a","5d7f13a0c8e9"]; var nCod=0;
+function codigo(){ return CODIGOS[(nCod++)%CODIGOS.length]; }
 
-  function marcar(){
-    conta.textContent = 'passo ' + passo + ' de ' + roteiro.length;
-    btProx.disabled = passo >= roteiro.length;
-    btProx.textContent = passo === 0 ? 'Começar a conversa'
-      : (passo >= roteiro.length ? 'Fim da demonstração' : 'Avançar a conversa');
+var INICIO = ["Quais prazos vencem esta semana?","Gera a proposta da pasta da Maria: R$ 2.500 fixos e 20% de êxito","Manda para a Maria a procuração em PDF","Manda o contrato para a Ana","Manda por e-mail para o contador o relatório de setembro","O PIX do João é honorário"];
+
+function respostaPara(pedido){
+  switch(pedido){
+    case "Quais prazos vencem esta semana?": return [{t:"Três nesta semana:\n• qua 15/10 · contestação · processo de final 0104 · provisório, conferir\n• qui 16/10 · réplica · processo de final 7731\n• sex 17/10 · audiência de conciliação, 10h, por vídeo\nO primeiro foi calculado por mim a partir da publicação; por isso está marcado para você conferir.", o:INICIO}];
+    case "Gera a proposta da pasta da Maria: R$ 2.500 fixos e 20% de êxito": marcarFeito("proposta"); return [{bast:"na vida real, cerca de 48 segundos"},{t:"Pronto: PROPOSTA AO CLIENTE - Maria Souza (v1).docx está na pasta do caso, com a identidade do escritório e o texto sugerido para ela. Os honorários entraram como você ditou, sem passar pela IA.\nQuer que eu mande para ela em PDF?", o:["Manda para a Maria em PDF","Ainda não"]}];
+    case "Manda para a Maria em PDF": case "Manda para a Maria a procuração em PDF":
+      var c=codigo(); var arq = pedido.indexOf("procuração")>=0 ? "PROCURAÇÃO.pdf (180 KB)" : "PROPOSTA AO CLIENTE - Maria Souza.pdf (96 KB)";
+      marcarFeito("previa");
+      return [{previa:"📋 Prévia conferida pelo sistema: WhatsApp\nPara: Maria Souza (cliente) · +55 (94) 90000-4820\nOrigem do número: cadastro do painel\nPasta: 00 - TRIAGEM/Maria Souza\nArquivos (1, em PDF):\n• "+arq+"\nMensagem que vai junto:\n\"Olá, Maria! Segue o documento. Qualquer dúvida, estou à disposição.\"\nCódigo da prévia: "+c+" (vale 30 minutos)\nResponda sim para enviar.", armar:{canal:"WhatsApp",para:"Maria Souza"}}];
+    case "Manda o contrato para a Ana": marcarFeito("homonimo"); return [{t:"Achei duas Anas no cadastro e não escolho sozinho:\n1. Ana Paula Lima (cliente) · final 1203\n2. Ana Beatriz Costa (cliente) · final 7781\nQual delas? Pode dizer o final do número.", o:["A do final 1203","A do final 7781"]}];
+    case "A do final 1203": case "A do final 7781":
+      var ana = pedido.indexOf("1203")>=0 ? ["Ana Paula Lima","1203","Ana Paula Lima"] : ["Ana Beatriz Costa","7781","Ana Beatriz Costa"];
+      var c2=codigo();
+      return [{previa:"📋 Prévia conferida pelo sistema: WhatsApp\nPara: "+ana[0]+" (cliente) · +55 (94) 90000-"+ana[1]+"\nOrigem do número: cadastro do painel\nPasta: CÍVEL 2026/"+ana[2]+"\nArquivos (1, em PDF):\n• CONTRATO DE HONORÁRIOS.pdf (210 KB)\nMensagem que vai junto:\n\"Olá! Segue o contrato para sua leitura.\"\nCódigo da prévia: "+c2+" (vale 30 minutos)\nResponda sim para enviar.", armar:{canal:"WhatsApp",para:ana[0]}}];
+    case "Manda por e-mail para o contador o relatório de setembro":
+      marcarFeito("email"); var c3=codigo();
+      return [{previa:"📋 Prévia conferida pelo sistema: e-mail\nPara: Carlos Mendes (contador) · carlos.mendes@contabil-exemplo.com.br\nAssunto: Relatório financeiro de setembro\nPasta: FINANCEIRO 2026\nAnexos (1):\n• RELATÓRIO SETEMBRO.pdf (320 KB)\nMensagem:\n\"Carlos, bom dia. Segue o relatório de setembro. Abraço.\"\nCódigo da prévia: "+c3+" (vale 30 minutos)\nResponda sim para enviar.", armar:{canal:"e-mail",para:"Carlos Mendes"}}];
+    case "O PIX do João é honorário": return [{t:"Anotado. A partir de agora, o PIX do João entra como honorário e dá baixa na parcela em aberto do contrato dele. Reclassifiquei os 2 de setembro.", o:INICIO}];
+    case "Ainda não": return [{t:"Combinado. Ela fica na pasta; quando quiser, é só pedir.", o:INICIO}];
   }
-  function proximo(){
-    if (passo >= roteiro.length) return;
-    var m = roteiro[passo];
-    var div = document.createElement('div');
-    div.className = 'msg ' + m.de;
-    var b = document.createElement('b');
-    b.textContent = m.quem;
-    var p = document.createElement('span');
-    p.textContent = m.texto;
-    div.appendChild(b);
-    div.appendChild(p);
-    corpo.appendChild(div);
-    passo++;
-    marcar();
+  return [{t:"Na demonstração eu respondo só aos pedidos sugeridos. No escritório, você pede do seu jeito.", o:INICIO}];
+}
+
+function rolarConversa(){ var c=$("conversa"); c.scrollTop=c.scrollHeight; }
+function msg(tipo, texto, de){
+  var m=el("div","msg "+tipo); if(de) m.appendChild(el("span","de",de)); m.appendChild(document.createTextNode(texto));
+  $("conversa").appendChild(m); rolarConversa(); return m;
+}
+function opcoes(lista){
+  var r=$("respostas"); r.innerHTML="";
+  (lista||[]).forEach(function(o){
+    var b=el("button",o.perigo?"perigo":null,o.t||o); b.type="button";
+    b.addEventListener("click",function(){ if(o.acao) o.acao(); else pedir(o.t||o); });
+    r.appendChild(b);
+  });
+}
+function falar(t){
+  if(!falarAlto || !("speechSynthesis" in window)) return;
+  var limpo = t.replace(/📋|•/g,"").replace(/\+55 \(\d\d\) \d{5}-(\d{4})/g,"o número de final $1").replace(/[a-z0-9._-]+@([a-z0-9.-]+)/gi,"um e-mail em $1").replace(/Código da prévia: \w+/,"");
+  try{ speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(limpo.slice(0,400)); u.lang="pt-BR"; speechSynthesis.speak(u);}catch(e){}
+}
+function estadoVoz(est, txt){ var l=$("luz"); l.className="luz"+(est?" "+est:""); $("voz-texto").innerHTML=txt; }
+
+function jarvisResponde(itens){
+  ocupado=true; opcoes([]); if(modoVoz) estadoVoz("pensando","Pensando…");
+  var dig=el("div","digitando"); dig.innerHTML="<i></i><i></i><i></i>"; $("conversa").appendChild(dig); rolarConversa();
+  setTimeout(function(){
+    dig.remove();
+    itens.forEach(function(it){
+      if(it.bast){ msg("bast", it.bast); return; }
+      if(it.previa){
+        msg("previa", modoVoz ? it.previa.replace("Responda sim para enviar.","Aperte F8 para enviar; F10 cancela.") : it.previa, "prévia, só para você");
+        armado = it.armar; armadoEm = Date.now();
+        if(modoVoz){
+          estadoVoz("falando","Prévia na tela. Confira e aperte <kbd>F8</kbd> (depois de 5 s) ou <kbd>F10</kbd>.");
+          falar("Prévia para "+armado.para+" na tela. Confira e aperte F8 para enviar.");
+          opcoes([{t:"F8 confirma",acao:function(){tecla("F8");}},{t:"F10 cancela",acao:function(){tecla("F10");},perigo:true}]);
+        } else {
+          opcoes([{t:"sim",acao:function(){confirmar("sim");}},{t:"ok",acao:function(){confirmar("ok");}},{t:"🎤 sim (áudio)",acao:function(){confirmar("audio");}},{t:"não",acao:function(){confirmar("nao");},perigo:true}]);
+        }
+        return;
+      }
+      msg("jarvis", it.t, "Jarvis"); falar(it.t);
+      if(modoVoz){ estadoVoz("falando","Falando… <kbd>F10</kbd> cala"); setTimeout(function(){ if(!ocupado) estadoVoz("","Aperte <kbd>F9</kbd> para falar"); }, 1800); }
+      opcoes(it.o);
+    });
+    ocupado=false;
+  }, reduz ? 200 : 900);
+}
+function pedir(t){ if(ocupado) return; armado=null; msg("eu", modoVoz ? "🎙 "+t : t, modoVoz?"você, por voz":"você"); jarvisResponde(respostaPara(t)); }
+
+function confirmar(como){
+  if(!armado) return;
+  if(como==="nao"){ msg("eu","não","você"); armado=null; msg("jarvis","Nada foi enviado. Se quiser mudar algo, é só dizer.","Jarvis"); opcoes(INICIO); return; }
+  if(como==="ok"){ msg("eu","ok","você"); marcarFeito("trava"); msg("trava","Envio a cliente só se confirma com sim digitado. Um ok de ciência não manda nada a ninguém. A prévia continua valendo.","trava do sistema"); return; }
+  if(como==="audio"){ msg("eu","🎤 áudio: \"sim\"","você"); marcarFeito("trava"); msg("trava","Áudio não confirma envio: a transcrição pode errar. Digite sim.","trava do sistema"); return; }
+  msg("eu","sim","você"); enviado();
+}
+function enviado(){
+  var a=armado; armado=null;
+  ocupado=true; opcoes([]);
+  setTimeout(function(){ msg("ok","✅ Enviado para "+a.para+" pelo "+a.canal+". O código foi usado e não vale de novo.","Jarvis"); falar("Enviado para "+a.para+"."); if(modoVoz) estadoVoz("","Aperte <kbd>F9</kbd> para falar"); ocupado=false; opcoes(INICIO); }, reduz?150:700);
+}
+function tecla(k){
+  if(!modoVoz){ if(k==="F9"||k==="F8"||k==="F10"){ trocarModo(true); toast("Modo voz ligado"); } return; }
+  if(k==="F10"){ try{speechSynthesis.cancel();}catch(e){} if(armado){ armado=null; msg("bast","F10: prévia cancelada, nada saiu"); opcoes([]); } estadoVoz("","Calado. Aperte <kbd>F9</kbd> para falar"); setTimeout(function(){opcoes(INICIO.map(function(x){return {t:x,acao:function(){ouvir(x);}};}));},300); return; }
+  if(k==="F8"){
+    if(!armado){ toast("Nada esperando confirmação"); return; }
+    var falta = 5000-(Date.now()-armadoEm);
+    if(falta>0){ marcarFeito("trava"); toast("Confira a prévia: o F8 vale em "+Math.ceil(falta/1000)+" s"); return; }
+    msg("eu","⌨ F8","você"); enviado(); return;
   }
-  function reiniciar(){
-    corpo.innerHTML = '';
-    passo = 0;
-    marcar();
-  }
-  btProx.addEventListener('click', proximo);
-  btRe.addEventListener('click', reiniciar);
-  reiniciar();
+  if(k==="F9"){ if(ocupado) return; marcarFeito("voz"); estadoVoz("ouvindo","Microfone aberto: escolha o que dizer"); opcoes(INICIO.map(function(x){return {t:x,acao:function(){ouvir(x);}};})); }
+}
+function ouvir(t){ estadoVoz("pensando","Transcrevendo no computador do escritório…"); setTimeout(function(){ pedir(t); }, reduz?100:500); }
+function trocarModo(voz){
+  modoVoz=voz; $("modo-voz").setAttribute("aria-pressed",String(voz)); $("modo-texto").setAttribute("aria-pressed",String(!voz));
+  $("tel").classList.toggle("modo-voz",voz); armado=null;
+  $("tel-estado").textContent = voz ? "voz no computador · F9 F10 F8" : "simulação · dados fictícios";
+  if(voz){ msg("bast","Modo voz: como no computador do escritório. F9 abre o microfone; a prévia de envio abre na tela e o F8 confirma."); estadoVoz("","Aperte <kbd>F9</kbd> para falar"); opcoes([{t:"F9: falar",acao:function(){tecla("F9");}}]); }
+  else { msg("bast","Modo WhatsApp: você confirma digitando sim."); opcoes(INICIO); }
+}
+function recomecar(){ $("conversa").innerHTML=""; armado=null; ocupado=false;
+  msg("jarvis","Bom dia! Eu sou o Jarvis, o assistente do escritório. Escolha um pedido abaixo, como se fosse você no WhatsApp do escritório.","Jarvis");
+  if(modoVoz) trocarModo(true); else opcoes(INICIO);
+}
+
+/* ================= travas ================= */
+var TRAVAS = [
+  ["Mandar sem o sim","O Jarvis prepara, mas não envia nada a terceiro sem a sua confirmação.","Pedir para enviar agora","bloq","Prévia gerada com código de uso único. Nada saiu: falta o seu sim."],
+  ["Confirmar com \"ok\"","Um ok de ciência no meio da conversa não pode disparar envio a cliente.","Responder ok","bloq","Não confirma. Para envio a cliente, só o sim digitado."],
+  ["Confirmar por áudio","A transcrição pode entender errado um áudio.","Mandar áudio dizendo sim","bloq","Áudio não confirma prévia. Digite sim."],
+  ["Impostor com nome de cliente","Alguém escreve dizendo ter o nome de um cliente seu.","Pedir para mandar a ele","bloq","Pelo nome, só escolho sozinho quem está no cadastro conferido. Esse contato vira candidato, e eu peço o final do número."],
+  ["Arquivo de outro cliente","Pedir um documento enquanto se fala de outro caso.","Mandar a procuração","libera","A prévia mostra a pasta de onde sai o arquivo e avisa quando o destinatário não é o cliente daquela pasta."],
+  ["Repetir o mesmo envio","O sim chega duas vezes, ou a rede cai no meio.","Confirmar de novo","bloq","Esse código já foi usado. Não reenvio às cegas: digo o que aconteceu com o primeiro envio."]
+];
+function desenharTravas(){
+  var c=$("lista-travas");
+  TRAVAS.forEach(function(t){
+    var d=el("div","trava-card"); d.appendChild(el("b",null,t[0])); d.appendChild(el("p",null,t[1]));
+    var b=el("button","bt sec",t[2]); b.type="button"; var s=el("div","saida "+t[3],(t[3]==="bloq"?"🔒 ":"🔎 ")+t[4]);
+    b.addEventListener("click",function(){ s.classList.add("mostra"); marcarFeito("trava"); });
+    d.appendChild(b); d.appendChild(s); c.appendChild(d);
+  });
+}
+
+/* ================= calculadora ================= */
+function calcular(){
+  var ct=+$("c-contatos").value, mi=+$("c-minutos").value, ho=+$("c-hora").value;
+  $("o-contatos").textContent=ct; $("o-minutos").textContent=mi+" min"; $("o-hora").textContent=moeda(ho);
+  var hm=ct*mi*4.33/60;
+  $("s-horas").textContent=hm.toLocaleString("pt-BR",{maximumFractionDigits:1})+" h";
+  $("s-reais").textContent=moeda(hm*12*ho);
+  $("s-dias").textContent=Math.round(hm*12/8)+" dias";
+  guardar.gravar("calc",[ct,mi,ho]);
+}
+
+/* ================= monte o seu ================= */
+var escolhidas = guardar.ler("frentes", null);
+function recomendar(p){
+  if(!escolhidas || !escolhidas.length){ escolhidas=p.recomenda.slice(); guardar.gravar("frentes",escolhidas); }
+  desenharFrentes();
+}
+function desenharFrentes(){
+  var c=$("frentes"); c.innerHTML="";
+  var p=PERFIS.filter(function(x){return x.id===perfil;})[0];
+  FRENTES.forEach(function(f){
+    var l=el("label","frente"+(p&&p.recomenda.indexOf(f.id)>=0?" recomendada":""));
+    var i=el("input"); i.type="checkbox"; i.checked=(escolhidas||[]).indexOf(f.id)>=0;
+    i.addEventListener("change",function(){
+      escolhidas=FRENTES.filter(function(x){ var e=c.querySelector('input[data-id="'+x.id+'"]'); return e&&e.checked; }).map(function(x){return x.id;});
+      guardar.gravar("frentes",escolhidas); desenharPlano();
+    });
+    i.setAttribute("data-id",f.id);
+    l.appendChild(i); l.appendChild(el("span","chip "+f.st,ROTULO_ST[f.st])); l.appendChild(el("b",null,f.nome)); l.appendChild(el("small",null,f.desc)); l.appendChild(el("span","rec","recomendada para o seu perfil"));
+    c.appendChild(l);
+  });
+  desenharPlano();
+}
+function textoDoPlano(lista){
+  var p=PERFIS.filter(function(x){return x.id===perfil;})[0];
+  var linhas=["Olá, equipe da Carajás HubTech! Quero uma demonstração do Jarvis."];
+  if(p) linhas.push("Perfil: "+p.nome+".");
+  linhas.push("Frentes de interesse: "+lista.map(function(f){return f.nome;}).join("; ")+".");
+  linhas.push("Contatos novos por semana: cerca de "+$("c-contatos").value+".");
+  return linhas.join("\n");
+}
+function desenharPlano(){
+  var c=$("plano"); c.innerHTML="";
+  var lista=FRENTES.filter(function(f){return (escolhidas||[]).indexOf(f.id)>=0;});
+  c.appendChild(el("h3",null,"Seu plano de implantação"));
+  if(!lista.length){ c.appendChild(el("p","vazio","Marque ao menos uma frente acima.")); return; }
+  var ordem=lista.slice().sort(function(a,b){ var o={ar:0,obra:1,sob:2}; return o[a.st]-o[b.st]; });
+  var ol=el("ol"), sem=1;
+  ol.appendChild((function(){ var li=el("li"); li.appendChild(document.createTextNode("Diagnóstico de 40 minutos, sem custo ")); li.appendChild(el("small",null,"semana 1")); return li; })());
+  ordem.forEach(function(f){ var li=el("li"); li.appendChild(document.createTextNode(f.nome+" ")); var ini=sem; sem+=f.semanas; li.appendChild(el("small",null,"semanas "+ini+"–"+(sem-1)+(f.st!=="ar"?" · "+ROTULO_ST[f.st]:""))); ol.appendChild(li); });
+  c.appendChild(ol);
+  c.appendChild(el("p",null,"Tudo testado primeiro no número do próprio advogado, com backup antes de cada mudança. Prazos estimados; o cronograma firme vem por escrito depois do diagnóstico."));
+  var txt=textoDoPlano(ordem);
+  c.appendChild(el("pre",null,txt));
+  var ac=el("div"); ac.style.display="flex"; ac.style.flexWrap="wrap"; ac.style.gap=".5rem";
+  var cp=el("button","bt","Copiar texto pronto"); cp.type="button";
+  cp.addEventListener("click",function(){ copiar(txt); });
+  ac.appendChild(cp);
+  if(CONTATO.whatsapp){ var w=el("a","bt claro","Enviar pelo WhatsApp"); w.href="https://wa.me/"+CONTATO.whatsapp+"?text="+encodeURIComponent(txt); w.target="_blank"; w.rel="noopener"; ac.appendChild(w); }
+  c.appendChild(ac);
+}
+function copiar(t){
+  var ok=function(){ toast("Texto copiado"); };
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(ok,function(){ copiaManual(t); }); } else copiaManual(t);
+}
+function copiaManual(t){ var a=el("textarea"); a.value=t; document.body.appendChild(a); a.select(); try{document.execCommand("copy"); toast("Texto copiado");}catch(e){ toast("Selecione e copie o texto"); } a.remove(); }
+function desenharContato(){
+  var c=$("acoes-contato");
+  var m=el("a","bt","Montar meu plano e pedir a demonstração"); m.href="#monte"; c.appendChild(m);
+  if(CONTATO.whatsapp){ var w=el("a","bt claro","Falar no WhatsApp"); w.href="https://wa.me/"+CONTATO.whatsapp+"?text="+encodeURIComponent("Olá! Vi a página do Jarvis e quero uma demonstração."); w.target="_blank"; w.rel="noopener"; c.appendChild(w); }
+  if(CONTATO.email){ var e=el("a","bt claro","Escrever por e-mail"); e.href="mailto:"+CONTATO.email+"?subject="+encodeURIComponent("Demonstração do Jarvis"); c.appendChild(e); }
+}
+
+/* ================= trilha, erros, perguntas ================= */
+function desenharTrilha(){ var o=$("trilha"); TRILHA.forEach(function(t){ var li=el("li"); li.appendChild(el("span","quem",t[0])); li.appendChild(el("b",null,t[1])); li.appendChild(el("small",null,t[2])); o.appendChild(li); }); }
+function desenharErros(){ var c=$("erros"); ERROS.forEach(function(e){ var d=el("details","erro"); d.appendChild(el("summary",null,e[0])); d.appendChild(el("p",null,e[1])); c.appendChild(d); }); }
+function semAcento(s){ return s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase(); }
+function desenharPerguntas(){
+  var c=$("lista-perguntas");
+  PERGUNTAS.forEach(function(q){ var d=el("details","pg"); d.setAttribute("data-busca",semAcento(q.join(" "))); d.appendChild(el("summary",null,q[0])); d.appendChild(el("p",null,q[1])); c.appendChild(d); });
+  $("busca").addEventListener("input",function(){
+    var t=semAcento(this.value.trim()), n=0;
+    c.querySelectorAll("details").forEach(function(d){ var v=!t||d.getAttribute("data-busca").indexOf(t)>=0; d.hidden=!v; if(v) n++; if(t&&v) d.open=true; });
+    $("nenhuma").style.display=n?"none":"block";
+  });
+}
+
+/* ================= rolagem, contadores, trilha vista ================= */
+var links=[].slice.call(document.querySelectorAll(".navlinks a"));
+var secoes=links.map(function(a){return document.querySelector(a.getAttribute("href"));});
+function aoRolar(){
+  var alc=document.documentElement.scrollHeight-innerHeight; $("preenchimento").style.width=(alc>0?Math.min(100,scrollY/alc*100):0)+"%";
+  var ativo=-1; secoes.forEach(function(s,i){ if(s&&s.getBoundingClientRect().top<=140) ativo=i; });
+  links.forEach(function(a,i){ if(i===ativo) a.setAttribute("aria-current","true"); else a.removeAttribute("aria-current"); });
+}
+addEventListener("scroll",aoRolar,{passive:true}); addEventListener("resize",aoRolar);
+if("IntersectionObserver" in window){
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){
+    if(!e.isIntersecting) return; var t=e.target; io.unobserve(t);
+    if(t.hasAttribute("data-conta")){
+      var alvo=+t.getAttribute("data-conta"), dec=+(t.getAttribute("data-dec")||0), suf=t.getAttribute("data-suf")||"", ini=null;
+      if(reduz){ t.textContent=alvo.toLocaleString("pt-BR",{minimumFractionDigits:dec,maximumFractionDigits:dec})+suf; return; }
+      (function passo(ts){ if(!ini) ini=ts; var p=Math.min(1,(ts-ini)/1100); t.textContent=(alvo*(1-Math.pow(1-p,3))).toLocaleString("pt-BR",{minimumFractionDigits:dec,maximumFractionDigits:dec})+suf; if(p<1) requestAnimationFrame(passo); })(performance.now());
+    } else t.classList.add("visto");
+  }); },{threshold:.6});
+  document.querySelectorAll("[data-conta]").forEach(function(e){io.observe(e);});
+} else document.querySelectorAll("[data-conta]").forEach(function(t){ t.textContent=t.getAttribute("data-conta")+(t.getAttribute("data-suf")||""); });
+
+/* ================= tour ================= */
+var TOUR=[
+  ["portas","Comece por você","Escolha o perfil do seu escritório: a calculadora e as frentes recomendadas se ajustam."],
+  ["tel","Converse com o Jarvis","Clique nos pedidos. Peça uma proposta, mande um arquivo e veja a prévia que só sai com o seu sim."],
+  ["lista-travas","Tente fazer ele errar","Confirmar com ok, por áudio, mandar a um impostor: cada trava age na sua frente."],
+  ["tempo","Faça a sua conta","Arraste os controles com os seus números e veja quanto tempo a triagem manual custa por ano."],
+  ["plano","Monte o seu plano","Marque as frentes. O cronograma e o texto pronto para pedir a demonstração saem na hora."]
+];
+var iTour=-1;
+function tourIr(i){
+  iTour=i; if(i<0||i>=TOUR.length){ $("tour-veu").classList.remove("ativo"); $("tour-cartao").classList.remove("ativo"); guardar.gravar("tour",true); return; }
+  var alvo=$(TOUR[i][0]); alvo.scrollIntoView({block:"center",behavior:reduz?"auto":"smooth"});
+  $("tour-titulo").textContent=TOUR[i][1]; $("tour-texto").textContent=TOUR[i][2]; $("tour-conta").textContent=(i+1)+" de "+TOUR.length;
+  $("tour-prox").textContent= i===TOUR.length-1 ? "Concluir" : "Próximo";
+  $("tour-veu").classList.add("ativo"); $("tour-cartao").classList.add("ativo");
+  setTimeout(posicionarFoco, reduz?0:420);
+}
+function posicionarFoco(){ if(iTour<0||iTour>=TOUR.length) return; var r=$(TOUR[iTour][0]).getBoundingClientRect(), f=$("tour-foco"); f.style.left=(r.left-8)+"px"; f.style.top=(r.top-8)+"px"; f.style.width=(r.width+16)+"px"; f.style.height=(r.height+16)+"px"; }
+addEventListener("scroll",function(){ if(iTour>=0&&iTour<TOUR.length) posicionarFoco(); },{passive:true});
+$("tour-prox").addEventListener("click",function(){ tourIr(iTour+1); });
+$("tour-sair").addEventListener("click",function(){ tourIr(-1); });
+$("bt-tour").addEventListener("click",function(){ tourIr(0); });
+
+/* ================= teclado ================= */
+function atalhos(abrir){ $("atalhos").classList.toggle("mostra",abrir); }
+$("bt-atalhos").addEventListener("click",function(){ atalhos(true); });
+$("atalhos").addEventListener("click",function(e){ if(e.target===this) atalhos(false); });
+addEventListener("keydown",function(e){
+  var t=e.target, digitando=t&&(t.tagName==="INPUT"||t.tagName==="TEXTAREA");
+  if(e.key==="F9"||e.key==="F10"||e.key==="F8"){ e.preventDefault(); tecla(e.key); return; }
+  if(e.key==="Escape"){ atalhos(false); if(iTour>=0) tourIr(-1); return; }
+  if(digitando||e.ctrlKey||e.metaKey||e.altKey) return;
+  if(e.key==="?"){ atalhos(true); }
+  else if(e.key==="t"||e.key==="T"){ tourIr(0); }
+  else if(e.key==="r"||e.key==="R"){ recomecar(); toast("Conversa recomeçada"); }
+});
+
+/* ================= início ================= */
+$("modo-texto").addEventListener("click",function(){ if(modoVoz) trocarModo(false); });
+$("modo-voz").addEventListener("click",function(){ if(!modoVoz) trocarModo(true); });
+$("k-f9").addEventListener("click",function(){tecla("F9");}); $("k-f10").addEventListener("click",function(){tecla("F10");}); $("k-f8").addEventListener("click",function(){tecla("F8");});
+$("falar-alto").addEventListener("change",function(){ falarAlto=this.checked; if(falarAlto&&!("speechSynthesis" in window)) toast("Este navegador não fala em voz alta"); });
+["contatos","minutos","hora"].forEach(function(k){ $("c-"+k).addEventListener("input",calcular); });
+var calc=guardar.ler("calc",[15,12,300]); $("c-contatos").value=calc[0]; $("c-minutos").value=calc[1]; $("c-hora").value=calc[2];
+desenharPortas(); desenharConq(); desenharTravas(); desenharTrilha(); desenharErros(); desenharPerguntas(); desenharContato();
+if(perfil) escolherPerfil(perfil,false); else { calcular(); desenharFrentes(); }
+recomecar(); aoRolar();
+if("IntersectionObserver" in window){ var io2=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("visto"); io2.unobserve(e.target);} });},{threshold:.8}); document.querySelectorAll(".trilha li").forEach(function(li){io2.observe(li);}); }
+if(!guardar.ler("tour",false)) setTimeout(function(){ toast(matchMedia("(pointer: fine)").matches ? "Novo por aqui? Aperte T para o tour de 1 minuto." : "Novo por aqui? Toque em “Tour de 1 minuto”."); },1800);
 })();
 </script>
 </body>
