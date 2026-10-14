@@ -390,7 +390,7 @@ footer b{color:#fff}
       <h2>Quer ver isso com um caso real do seu escritório?</h2>
       <p>Demonstração de 30 minutos, no número do seu escritório: a entrevista acontecendo, a pré-análise chegando, a proposta sendo gerada e a prévia esperando o seu "sim". Sem compromisso. O investimento é sob medida e vem por escrito depois do diagnóstico.</p>
       <div class="acoes" id="acoes-contato"></div>
-      <p class="leve" style="color:#8495AB;margin:.9rem 0 0">Carajás HubTech &middot; Marabá/PA &middot; atendimento remoto em todo o Brasil</p>
+      <p class="leve" style="color:#8495AB;margin:.9rem 0 0">Carajás HubTech &middot; WhatsApp (94) 9 9253-1512 &middot; <a href="mailto:atendimento@carajashubtech.com" style="color:#8FB4FF">atendimento@carajashubtech.com</a> &middot; Marabá/PA, atendimento remoto em todo o Brasil</p>
     </div>
   </section>
 
@@ -398,7 +398,7 @@ footer b{color:#fff}
 
 <footer>
   <div class="wrap">
-    <b>Carajás HubTech</b><br>Tecnologia e automação para escritórios de advocacia &middot; Marabá, Pará
+    <b>Carajás HubTech</b><br>Tecnologia e automação para escritórios de advocacia &middot; Marabá, Pará<br><a href="mailto:atendimento@carajashubtech.com" style="color:#8FB4FF">atendimento@carajashubtech.com</a> &middot; WhatsApp (94) 9 9253-1512
     <p class="fontes">
       Este material descreve software e serviços de uma empresa de tecnologia. Não é publicidade de serviços de advocacia e não constitui oferta de atividade privativa de advogado.<br>
       Os números foram medidos em operação real, num único escritório, entre setembro e outubro de 2026, e variam conforme o volume e a infraestrutura de cada contratante.<br>
@@ -423,7 +423,7 @@ footer b{color:#fff}
 (function(){
 "use strict";
 /* ================= contato (preencher quando houver) ================= */
-var CONTATO = { whatsapp: "", email: "" }; // ex.: whatsapp: "5594900000000"
+var CONTATO = { whatsapp: "5594992531512", email: "atendimento@carajashubtech.com", site: "https://carajashubtech.com", idealizador: "5594991089454" };
 
 /* ================= dados ================= */
 var PERFIS = [
@@ -723,6 +723,7 @@ function desenharContato(){
   var m=el("a","bt","Montar meu plano e pedir a demonstração"); m.href="#monte"; c.appendChild(m);
   if(CONTATO.whatsapp){ var w=el("a","bt claro","Falar no WhatsApp"); w.href="https://wa.me/"+CONTATO.whatsapp+"?text="+encodeURIComponent("Olá! Vi a página do Jarvis e quero uma demonstração."); w.target="_blank"; w.rel="noopener"; c.appendChild(w); }
   if(CONTATO.email){ var e=el("a","bt claro","Escrever por e-mail"); e.href="mailto:"+CONTATO.email+"?subject="+encodeURIComponent("Demonstração do Jarvis"); c.appendChild(e); }
+  if(CONTATO.idealizador){ var i=el("a","bt claro","Falar com o idealizador, Dr. Abrahão Neto"); i.href="https://wa.me/"+CONTATO.idealizador+"?text="+encodeURIComponent("Olá, Dr. Abrahão! Vi a página do Jarvis e quero conversar sobre ele."); i.target="_blank"; i.rel="noopener"; c.appendChild(i); }
 }
 
 /* ================= trilha, erros, perguntas ================= */

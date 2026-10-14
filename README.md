@@ -60,6 +60,10 @@ Pastas dos casos, documentos e transcrições permanecem na máquina do escritó
 
 A demonstração é feita com um caso real do seu escritório, no seu próprio número, e leva cerca de 30 minutos. Agendamento direto com a equipe da **Carajás HubTech**, em Marabá/PA, com atendimento remoto em todo o Brasil.
 
+- 💬 WhatsApp: [(94) 9 9253-1512](https://wa.me/5594992531512?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20do%20Jarvis%20e%20quero%20uma%20demonstra%C3%A7%C3%A3o.)
+- ✉️ E-mail: [atendimento@carajashubtech.com](mailto:atendimento@carajashubtech.com)
+- Idealizador: Dr. Abrahão Neto, WhatsApp [(94) 9 9108-9454](https://wa.me/5594991089454)
+
 ---
 
 ## Sobre este repositório
